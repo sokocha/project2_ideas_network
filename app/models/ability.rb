@@ -6,7 +6,11 @@ class Ability
     if user.role? :admin
       can :manage, :all
     else
-      can :read, Recipe
+      # Lisa: should specify actions here that a normal user is allowed to do
+      # can :read, Idea
     end
   end
+
+
+
 end

@@ -1,23 +1,23 @@
 class IdeasController < ApplicationController
 
-  load_and_authorize_resource
+  load_and_authorize_resource 
   
-  def new
-  end
+  # def new
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
-  def index
-  end
+  # def index
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
-  def create
-  end
+  # def create
+  # end
 
 end

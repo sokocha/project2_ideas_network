@@ -3,18 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   
   root 'ideas#index'
+  resources :ideas
 
-  get 'ideas/new'
-
-  get 'ideas/show'
-
-  get 'ideas/index'
-
-  get 'ideas/edit'
-
-  get 'ideas/update'
-
-  get 'ideas/create'
+  # Lisa: haven't put the below line in yet because there isn't a users controller yet
+  # resources :users, only: [:index, :show, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
