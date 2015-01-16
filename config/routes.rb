@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+  root 'ideas#index'
+
+  get 'ideas/new'
+
+  get 'ideas/show'
+
+  get 'ideas/index'
+
+  get 'ideas/edit'
+
+  get 'ideas/update'
+
+  get 'ideas/create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
