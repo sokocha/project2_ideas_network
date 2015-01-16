@@ -6,8 +6,8 @@ class Ability
     if user.role? :admin
       can :manage, :all
     else
-      # Lisa: should specify actions here that a normal user is allowed to do
-      # can :read, Idea
+      # can :read, Idea -- Lisa: will need to update this with chosen levels of permission. Currently everyone is effectively an admin
+      can :manage, :all
     end
   end
 

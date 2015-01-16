@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   root 'ideas#index'
   resources :ideas
+  resources :categories
 
   # Lisa: haven't put the below line in yet because there isn't a users controller yet
   # resources :users, only: [:index, :show, :edit, :update]
