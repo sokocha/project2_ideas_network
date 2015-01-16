@@ -1,5 +1,7 @@
 class IdeasController < ApplicationController
 
+  load_and_authorize_resource
+  
   def new
   end
 
@@ -17,5 +19,5 @@ class IdeasController < ApplicationController
 
   def create
   end
-  
+
 end

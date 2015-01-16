@@ -35,6 +35,7 @@ group :development, :test do
 end
 
 gem 'devise'
+gem 'cancancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
