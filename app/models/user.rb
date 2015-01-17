@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   validates :bio, presence: true
   validates :bio, length: {maximum: 1000}
-  validates :avatar, presence: true
+  # validates :avatar, presence: true
 
 
   
