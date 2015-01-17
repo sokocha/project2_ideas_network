@@ -10,6 +10,7 @@ class Ability
       can :read, :all
       cannot :create, Category
       cannot :destroy, Category
+      cannot :update, Category
       can :create, Idea
       cannot :destroy, Idea        
       can :update, Idea do |idea|
