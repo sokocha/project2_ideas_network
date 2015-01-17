@@ -28,6 +28,7 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
+    @idea.user_id = current_user.id if current_user
     @idea.save
     redirect_to @idea
   end
