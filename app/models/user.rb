@@ -8,6 +8,23 @@ class User < ActiveRecord::Base
 
   has_many :ideas
   has_many :categories
+
+  validates :email, presence: true
+  validates :email, length: {minimum: 6}
+  validates :email, uniqueness: true
+
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :username, length: {maximum: 20}
+
+  validates :bio, presence: true
+  validates :bio, length: {maximum: 1000}
+  validates :avatar, presence: true
+
+
+  
+
+ 
   
 
 
