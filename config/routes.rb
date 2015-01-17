@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
+
   devise_for :users
   
   root 'ideas#index'
   resources :ideas
   resources :categories
+  resources :users, only: [:show, :edit, :update] 
 
   # Lisa: haven't put the below line in yet because there isn't a users controller yet
   # resources :users, only: [:index, :show, :edit, :update]

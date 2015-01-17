@@ -15,8 +15,11 @@ class Ability
       cannot :destroy, Idea        
       can :update, Idea do |idea|
         idea.try(:user) == user
-
       end
+      # can :update, User do |user|
+      #   user.try(:user) == user
+      # end
+      
     end
   end
 
