@@ -6,12 +6,15 @@ class Ability
     if user.role? :admin
       can :manage, :all
     else
-      # can :read, Idea -- Lisa: will need to update this with chosen levels of permission. Currently everyone is effectively an admin
+    
       can :read, :all
-      can :manage, Category
+      cannot :create, Category
+      cannot :destroy, Category
       can :create, Idea
+      cannot :destroy, Idea        
       can :update, Idea do |idea|
         idea.try(:user) == user
+
       end
     end
   end
