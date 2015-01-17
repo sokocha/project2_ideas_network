@@ -22,3 +22,5 @@ Category.create!(name: "Enterprise software", is_live: true)
 Category.create!(name: "Magic potion", is_live: true)
 Category.create!(name: "Lifestyle", is_live: true)
 Category.create!(name: "Blue-sky thinking", is_live: true)
+
+
