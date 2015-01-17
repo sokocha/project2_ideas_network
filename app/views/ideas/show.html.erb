@@ -6,7 +6,9 @@
 <p><a href="https://www.youtube.com/watch?v=<%= @idea.video_link %>" target="_blank">Watch the video</a></p>
 <h3>Feedback requested: <%= @idea.feedback_type %></h3> 
 
-<p>Idea submitted on <%= @idea.created_at.strftime("%b %-d, %Y") %>, by <%= User.find(@idea.user_id).try(:username) %></p><br><br>
+<p>Idea submitted on <%= @idea.created_at.strftime("%b %-d, %Y") %>, by <%= User.find(@idea.user_id).try(:username) %>
+  <%= link_to "View profile", User.find(@idea.user_id) %>
+</p><br><br>
 
 <% if can? :update, @idea %>
 <%= link_to 'Edit above details', edit_idea_path(@idea) %> 
