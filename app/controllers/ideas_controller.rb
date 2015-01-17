@@ -11,6 +11,8 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @ideas = Idea.paginate(page: params[:page], per_page: 1).order('created_at DESC')
+
   end
 
   # def edit

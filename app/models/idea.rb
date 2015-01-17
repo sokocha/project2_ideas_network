@@ -13,5 +13,7 @@ class Idea < ActiveRecord::Base
   validates :video_link, presence: true
   validates :category_id, presence: true
 
+  self.per_page = 1
+
 
 end
