@@ -18,7 +18,15 @@ class IdeasController < ApplicationController
   # def update
   # end
 
-  # def create
-  # end
+  def create
+    @idea = Idea.new(idea_params)
+    @idea.save
+    redirect_to(ideas_path)
+  end
+
+private
+  def idea_params
+    params.require(:idea).permit(:title, :description, :category_id, :main_image, :video_link, :feedback_type)
+  end
 
 end
