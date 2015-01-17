@@ -27,11 +27,12 @@ class IdeasController < ApplicationController
   end
 
   def create
-      @idea = Idea.new(idea_params)
-      @idea.user_id = current_user.id if current_user
-      @idea.save
-      redirect_to @idea
-    end
+    @idea = Idea.new(idea_params)
+    @idea.user_id = current_user.id if current_user
+    @idea.save
+    redirect_to @idea
+  end
+
 
 private
   def idea_params
