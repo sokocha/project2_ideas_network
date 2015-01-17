@@ -16,4 +16,9 @@ User.create!(email: "admin@idea.com", password: "password", role: "admin", usern
 
 User.create!(email: "user@idea.com", password: "password", role: "user", username: "user1", bio: "I like the internet and all good things, but most especially kittens.")
 
-
+Category.create!(name: "System", is_live: true)
+Category.create!(name: "App", is_live: true)
+Category.create!(name: "Enterprise software", is_live: true)
+Category.create!(name: "Magic potion", is_live: true)
+Category.create!(name: "Lifestyle", is_live: true)
+Category.create!(name: "Blue-sky thinking", is_live: true)

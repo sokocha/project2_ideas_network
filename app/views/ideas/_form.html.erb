@@ -17,13 +17,14 @@
     <%= f.text_field :title %><br><br>
     <%= f.label :description, "OK! People want to know more. Here's your chance to describe your idea in more depth." %><br>
     <%= f.text_area :description %><br><br>
+    <%= f.label :category_id, 'Category' %><br>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %><br><br>
     <%= f.label :main_image, 'Image (provide a url)' %><br>
     <%= f.text_field :main_image %><br><br>
     <%= f.label :video_link, 'ID of YouTube video of your pitch' %><br>
     <%= f.text_field :video_link %><br><br>
-    <%= f.label :feedback_type, 'What are you hoping the feedback will be like?' %><br>
-    <%= f.text_field :feedback_type %><br><br>
-    <%= f.select :score, [['horrible', 1], ['poor', 2], ['mediocre', 3], ['good', 4], ['great', 5]] %>
+    <%= f.label :feedback_type, 'What kind of feedback do you want?' %><br>
+    <%= f.select :feedback_type, ["Devil's advocate (1)", "Honesty is the best policy (2)", "Meh (3)", "Please be nice, I'm new (4)", "Lie to me (5)" ] %><br><br>
   </div>
 
   <div class="actions">

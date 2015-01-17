@@ -37,6 +37,8 @@ end
 gem 'devise'
 gem 'cancancan'
 
+gem 'faker', '~>1.4.3', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
