@@ -9,6 +9,7 @@
 
 User.delete_all
 Idea.delete_all
+Category.delete_all
 
 
 User.create!(email: "admin@idea.com", password: "password", role: "admin", username: "admin", bio: "I am a benevolent dictator. Also I like backgammon.")

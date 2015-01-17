@@ -2,10 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  # Lisa: removed :recoverable from the below because "we don't want our apps sending emails for now" (source: classnotes)
+  # Lisa: removed :recoverable from the below because "we don't want our apps sending emails for now" (source: classnotes) and :rememberable so that we don't get stuck as logged in
 
-  devise :database_authenticatable, :registerable,
-         :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :trackable, :validatable
 
   has_many :ideas
   
