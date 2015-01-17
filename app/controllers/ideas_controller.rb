@@ -9,19 +9,27 @@ class IdeasController < ApplicationController
   # def show
   # end
 
-  # def index
-  # end
+  def index
+    @ideas = Idea.all
+  end
 
   # def edit
   # end
 
-  # def update
-  # end
+  def update
+    @idea.update(idea_params)
+    redirect_to(idea_path)
+  end
+
+  def destroy
+    @idea.destroy
+    redirect_to(ideas_path)
+  end
 
   def create
     @idea = Idea.new(idea_params)
     @idea.save
-    redirect_to(ideas_path)
+    redirect_to @idea
   end
 
 private

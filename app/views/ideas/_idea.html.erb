@@ -1,0 +1,10 @@
+<%#= TODO get user_id assigned according to the current user when the idea is submitted  %>
+
+<br><br>
+<h1><%= idea.title %></h1>
+<h3><%= idea.category.name %></h3>
+<h3>Feedback requested:</h3> 
+<%= idea.feedback_type %>
+<p>Idea submitted on: <%= idea.created_at.strftime("%b %-d, %Y") %></p>
+<%= link_to 'Look into this idea', idea %>
+
