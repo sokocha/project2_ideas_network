@@ -33,6 +33,18 @@ class IdeasController < ApplicationController
     redirect_to @idea
   end
 
+  def upvote
+    @idea = Idea.find(params[:id])
+    @idea.liked_by current_user
+    redirect_to @idea
+  end
+
+  def downvote
+    @idea = Idea.find(params[:id])
+    @idea.downvote_from current_user
+    redirect_to @idea
+  end
+
 
 private
   def idea_params

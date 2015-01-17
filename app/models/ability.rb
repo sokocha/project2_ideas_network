@@ -12,6 +12,8 @@ class Ability
       cannot :destroy, Category
       cannot :update, Category
       can :create, Idea
+      can :upvote, Idea
+      can :downvote, Idea
       cannot :destroy, Idea        
       can :update, Idea do |idea|
         idea.try(:user) == user

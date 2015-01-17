@@ -10,6 +10,15 @@
   <%= link_to "View profile", User.find(@idea.user_id) %>
 </p><br><br>
 
+<h3>Votes</h3>
+<p>Upvotes: <%= @idea.get_upvotes.size %></p>
+<p>Downvotes: <%= @idea.get_downvotes.size %></p>
+
+<%= link_to "Upvote", like_idea_path(@idea), method: :put %> | 
+<%= link_to "Downvote", dislike_idea_path(@idea), method: :put %>
+
+<br><br><br><br>
+
 <% if can? :update, @idea %>
 <%= link_to 'Edit above details', edit_idea_path(@idea) %> 
 <% end %>
