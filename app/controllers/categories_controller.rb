@@ -23,6 +23,7 @@ class CategoriesController < ApplicationController
    # POST /categories.json
    def create
      @category = Category.new(category_params)
+     authorize! :create, Category
 
      respond_to do |format|
        if @category.save
