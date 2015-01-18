@@ -5,8 +5,9 @@
 <h3><%= idea.category.name %></h3>
 <h3>Feedback requested:</h3> 
 <%= idea.feedback_type %>
-<p>Idea submitted on <%= idea.created_at.strftime("%b %-d, %Y") %>, by <%= User.find(idea.user_id).try(:username) %>
-  <%= link_to "View profile", User.find(idea.user_id) %></p>
+<p>Idea submitted on <%= idea.created_at.strftime("%b %-d, %Y") %>, by <%= link_to User.find(idea.user_id).try(:username), user_path(idea.user_id)  %>
+
+  <%#= link_to "View profile", User.find(idea.user_id) %></p>
 <h3>Votes</h3>
 <p>Upvotes: <%= idea.get_upvotes.size %></p>
 <p>Downvotes: <%= idea.get_downvotes.size %></p>
