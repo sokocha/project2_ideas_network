@@ -15,5 +15,16 @@ class Idea < ActiveRecord::Base
 
   self.per_page = 1
 
+  validate :title_not_changed
+
+
+
+   private
+
+   def title_not_changed
+     if title_changed? && self.persisted? 
+       errors.add(:title, "Change of title not allowed!")
+     end
+   end
 
 end
