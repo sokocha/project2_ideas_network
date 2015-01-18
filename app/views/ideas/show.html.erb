@@ -13,6 +13,7 @@
 <h3>Votes</h3>
 <p>Upvotes: <%= @idea.get_upvotes.size %></p>
 <p>Downvotes: <%= @idea.get_downvotes.size %></p>
+<p>Vote Score: <%= @idea.get_upvotes.count - @idea.get_downvotes.count %></p>
 
 <%= link_to "Upvote", like_idea_path(@idea), method: :put %> | 
 <%= link_to "Downvote", dislike_idea_path(@idea), method: :put %>
