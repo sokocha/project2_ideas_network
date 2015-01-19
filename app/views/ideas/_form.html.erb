@@ -21,6 +21,8 @@
     <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %><br><br>
     <%= f.label :main_image, 'Image (provide a url)' %><br>
     <%= f.text_field :main_image %><br><br>
+    <%= f.label :idea_image %><br />
+    <%= f.file_field :idea_image %>
     <%= f.label :video_link, 'ID of YouTube video of your pitch' %><br>
     <%= f.text_field :video_link %><br><br>
     <%= f.label :feedback_type, 'What kind of feedback do you want?' %><br>
