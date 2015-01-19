@@ -26,12 +26,12 @@
 
   <%= label_tag :vote_weight, "How original do you think this idea is?" %>
   <%= number_field_tag :vote_weight %>
-
+  <br><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
-
 <% end %>
+<p>Originality Score: <%= @idea.get_likes(:vote_scope => 'rate_originality').sum(:vote_weight) / @idea.get_upvotes(:vote_scope => 'rate_originality').size %> </p>
 
 <br><br>
 
