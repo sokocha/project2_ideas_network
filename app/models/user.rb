@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   validates :bio, length: {maximum: 1000}
   # validates :avatar, presence: true
 
+  mount_uploader :user_image, UserImageUploader
+
 
   
 
