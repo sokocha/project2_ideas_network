@@ -16,6 +16,7 @@ class Idea < ActiveRecord::Base
   self.per_page = 1
 
   validate :title_not_changed
+  mount_uploader :idea_image, IdeaImageUploader
 
   # This function is used in the ideas views. It calculates the overall originality score, given the vote scope of 'rate_originality', by taking an average across all such votes. The "else" is necessary because without it, when an idea doesn't have ratings, this method would end up dividing by zero, and no one likes dividing by zero.
   def current_originality_rating
