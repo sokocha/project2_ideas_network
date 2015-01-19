@@ -6,7 +6,7 @@ class Ability
     if user.role? :admin
       can :manage, :all
     else
-    
+      # add if persisted
       can :read, :all
       cannot :create, Category
       cannot :destroy, Category
@@ -14,6 +14,7 @@ class Ability
       can :create, Idea
       can :upvote, Idea
       can :downvote, Idea
+      can :score_originality, Idea
       cannot :destroy, Idea        
       can :update, Idea do |idea|
         idea.try(:user) == user

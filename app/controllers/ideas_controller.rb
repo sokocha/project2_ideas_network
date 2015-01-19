@@ -47,6 +47,12 @@ class IdeasController < ApplicationController
     redirect_to @idea
   end
 
+  def score_originality
+    @idea = Idea.find(params[:id])
+    @idea.liked_by current_user, :vote_scope => 'rate_originality', :vote_weight => params[:vote_weight]
+    redirect_to @idea
+  end
+
 
 private
   def idea_params

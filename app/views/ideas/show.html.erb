@@ -22,7 +22,7 @@
 <br><br>
 
 <h3>Originality score</h3>
-<%= form_for(@idea) do |f| %>
+<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, html: { class: "originality_score_form" } do |f| %>
 
   <%= label_tag :vote_weight, "How original do you think this idea is?" %>
   <%= number_field_tag :vote_weight %>
@@ -30,6 +30,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
 
 <br><br>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "ideas#upvote"
       put "dislike", to: "ideas#downvote"
+      put "originality_rating", to: "ideas#score_originality"
     end
   end
 
