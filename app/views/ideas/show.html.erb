@@ -11,14 +11,30 @@
 </p><br><br>
 
 <h3>Votes</h3>
-<p>Upvotes: <%= @idea.get_upvotes.size %></p>
-<p>Downvotes: <%= @idea.get_downvotes.size %></p>
-<p>Vote Score: <%= @idea.get_upvotes.count - @idea.get_downvotes.count %></p>
+<p>Upvotes: <%= @idea.get_upvotes(:vote_scope => 'vote_for_idea').size %></p>
+<p>Downvotes: <%= @idea.get_downvotes(:vote_scope => 'vote_for_idea').size %></p>
+<p>Vote Score: <%= @idea.get_upvotes(:vote_scope => 'vote_for_idea').size - @idea.get_downvotes(:vote_scope => 'vote_for_idea').size %></p>
+
 
 <%= link_to "Upvote", like_idea_path(@idea), method: :put %> | 
 <%= link_to "Downvote", dislike_idea_path(@idea), method: :put %>
 
-<br><br><br><br>
+<br><br>
+
+<h3>Originality score</h3>
+<%= form_for(@idea) do |f| %>
+
+  <%= label_tag :vote_weight, "How original do you think this idea is?" %>
+  <%= number_field_tag :vote_weight %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<br><br>
+
+<br><br>
 
 <% if can? :update, @idea %>
 <%= link_to 'Edit above details', edit_idea_path(@idea) %> 
