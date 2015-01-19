@@ -1,6 +1,10 @@
 <p>Username: <%= @user.username %></p>
 <p>Email: <%= @user.email %></p>
 <p>Biography: <%= @user.bio %></p>
+<p>
+  <b>Image:</b>
+  <%= image_tag @user.user_image.url %>
+</p>
 
 <%= link_to 'Edit profile', edit_user_path(@user) %> |
 <%= link_to 'Back to the homepage', ideas_path %>
