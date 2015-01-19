@@ -17,6 +17,9 @@ class Idea < ActiveRecord::Base
 
   validate :title_not_changed
 
+  def current_originality_rating
+    self.get_likes(:vote_scope => 'rate_originality').sum(:vote_weight) / self.get_upvotes(:vote_scope => 'rate_originality').size
+  end
 
 
    private

@@ -6,8 +6,7 @@
 <p><a href="https://www.youtube.com/watch?v=<%= @idea.video_link %>" target="_blank">Watch the video</a></p>
 <h3>Feedback requested: <%= @idea.feedback_type %></h3> 
 
-<p>Idea submitted on <%= @idea.created_at.strftime("%b %-d, %Y") %>, by <%= User.find(@idea.user_id).try(:username) %>
-  <%= link_to "View profile", User.find(@idea.user_id) %>
+<p>Idea submitted on <%= @idea.created_at.strftime("%b %-d, %Y") %>, by <%= link_to User.find(@idea.user_id).try(:username), user_path(@idea.user_id)  %>
 </p><br><br>
 
 <h3>Votes</h3>
@@ -31,7 +30,8 @@
     <%= f.submit "Submit" %>
   </div>
 <% end %>
-<p>Originality Score: <%= @idea.get_likes(:vote_scope => 'rate_originality').sum(:vote_weight) / @idea.get_upvotes(:vote_scope => 'rate_originality').size %> </p>
+
+<p>Originality Score: <%= @idea.current_originality_rating %></p>
 
 <br><br>
 
