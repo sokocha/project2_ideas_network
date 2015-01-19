@@ -21,17 +21,17 @@
 <br><br>
 
 <h3>Originality score</h3>
-<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, html: { class: "originality_score_form" } do |f| %>
+<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { id: "originality_score_form" } do |f| %>
 
   <%= label_tag :vote_weight, "How original do you think this idea is?" %>
   <%= number_field_tag :vote_weight %>
   <br><br>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", id: "submit_originality_rating" %>
   </div>
 <% end %>
 
-<p>Originality Score: <%= @idea.current_originality_rating %></p>
+<p>Originality Score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
 
 <br><br>
 

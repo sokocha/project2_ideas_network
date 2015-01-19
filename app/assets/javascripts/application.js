@@ -14,3 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function (){
+
+  $('#originality_score_form').
+    on('ajax:success', function(evt, data, status, xhr){
+      // console.log('success: ', data);   
+      $('#originality_score').html(data);
+    }).
+    on('ajax:error', function(xhr, status, error){
+      console.log('error: ', error);
+    }); // end click listener
+
+    $('#vote_weight').on('keyup', function(){
+      $('#originality_score_form').submit();
+    }) // end search listener
+
+}); // end document ready
+
+
