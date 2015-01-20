@@ -27,6 +27,10 @@ class Idea < ActiveRecord::Base
     end
   end
 
+  def current_score
+    self.get_upvotes(:vote_scope => 'vote_for_idea').size - self.get_downvotes(:vote_scope => 'vote_for_idea').size
+  end
+
 
    private
 

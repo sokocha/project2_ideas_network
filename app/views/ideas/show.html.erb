@@ -27,6 +27,10 @@
   <%= f.submit "Upvote", class: "vote-on-idea", id: "upvote-on-idea" %>
 <% end %>
 
+<%= form_for @idea, url: dislike_idea_path(@idea), method: :put, remote: true, html: { id: "downvote-form", class: "idea-voting-form" } do |f| %>
+  <%= f.submit "Downvote", class: "vote-on-idea", id: "downvote-on-idea" %>
+<% end %>
+
 <p>Vote Score: <span id="idea_score"><%= render :template => "ideas/ideascore" %></span></p>
 
 <br><br>
