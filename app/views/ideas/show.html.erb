@@ -15,16 +15,9 @@
 </p><br><br>
 
 <h3>Votes</h3>
-
-<%= form_for @idea, url: like_idea_path(@idea), method: :put, remote: true, html: { id: "upvote-form", class: "idea-voting-form" } do |f| %>
-  <%= f.submit "Upvote", class: "vote-on-idea arrow-up-unselected", id: "upvote-on-idea" %>
-<% end %>
-
-<span id="idea_score"><%= render :template => "ideas/ideascore" %></span>
-
-<%= form_for @idea, url: dislike_idea_path(@idea), method: :put, remote: true, html: { id: "downvote-form", class: "idea-voting-form" } do |f| %>
-  <%= f.submit "Downvote", class: "vote-on-idea arrow-down-unselected", id: "downvote-on-idea" %>
-<% end %>
+<div id="idea_score">
+  <%= render :template => "ideas/ideascore" %>  
+</div>
 
 <br>
 
