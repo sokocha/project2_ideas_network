@@ -9,9 +9,9 @@
 
   <%#= link_to "View profile", User.find(idea.user_id) %></p>
 <h3>Votes</h3>
-<p>Upvotes: <%= idea.get_upvotes.size %></p>
-<p>Downvotes: <%= idea.get_downvotes.size %></p>
-<p>Vote Score: <%= idea.get_upvotes.count - idea.get_downvotes.count %></p>
+<p>Upvotes: <%= idea.get_upvotes(:vote_scope => 'vote_for_idea').size %></p>
+<p>Downvotes: <%= idea.get_downvotes(:vote_scope => 'vote_for_idea').size %></p>
+<p>Vote Score: <%= idea.current_score %></p>
 <%= link_to 'Look into this idea', idea %>
 
 

@@ -31,6 +31,10 @@ class Idea < ActiveRecord::Base
     self.get_upvotes(:vote_scope => 'vote_for_idea').size - self.get_downvotes(:vote_scope => 'vote_for_idea').size
   end
 
+  def total_votes_cast_on_idea
+    self.get_upvotes(:vote_scope => 'vote_for_idea').size + self.get_downvotes(:vote_scope => 'vote_for_idea').size
+  end
+
 
    private
 
