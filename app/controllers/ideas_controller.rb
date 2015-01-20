@@ -6,16 +6,16 @@ class IdeasController < ApplicationController
   # def new
   # end
 
-  # def show
-  # end
+  def show
+    @idea = Idea.find(params[:id])
+    @comments = @idea.comment_threads.order('created_at desc')
+    @new_comment = Comment.build_from(@idea, current_user.id, "")
+  end
+
 
   def index
-
     @q = Idea.search(params[:q])
     @ideas = @q.result.paginate(page: params[:page], per_page: 1).order('created_at DESC')
-
-
-
   end
 
   # def edit
