@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments, :only => [:create, :destroy]
+
   # Lisa: haven't put the below line in yet because there isn't a users controller yet
   # resources :users, only: [:index, :show, :edit, :update]
 
