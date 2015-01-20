@@ -10,8 +10,9 @@ class IdeasController < ApplicationController
   # end
 
   def index
-    @ideas = Idea.all
-    @ideas = Idea.paginate(page: params[:page], per_page: 1).order('created_at DESC')
+    @q = Idea.search(params[:q])
+    @ideas = @q.result.paginate(page: params[:page], per_page: 1).order('created_at DESC')
+
 
   end
 
