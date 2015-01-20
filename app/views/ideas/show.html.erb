@@ -26,25 +26,40 @@
 <br><br>
 
 <h3>Originality score</h3>
-<%#= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { id: "originality_score_form" } do |f| %>
+<p>"How original do you think this idea is?"</p>
 
-  <%#= label_tag :vote_weight, "How original do you think this idea is?" %>
-  <%#= number_field_tag :vote_weight %>
-<!--   <br><br>
-  <div class="actions"> -->
-    <%#= f.submit "Submit", id: "submit_originality_rating" %>
-<!--   </div> -->
-<%# end %>
+<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 1) %>
+  <br><br>
+  <%= f.submit "One of a kind", class: "submit_originality_rating" %>
+<% end %>
 
-<!-- How to do remote true with just buttons... maybe just set up an ajax request separately to the form...  -->
+<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 2) %>
+  <%= f.submit "Original", class: "submit_originality_rating" %>
+<% end %>
 
-<div id="originality-score-wrapper">
-  <input id="rate_originality_as_1" type="button" value="One of a kind" />
-  <input id="rate_originality_as_2" type="button" value="Original" />
-  <input id="rate_originality_as_3" type="button" value="Somewhat original" />
-  <input id="rate_originality_as_4" type="button" value="A bit original" />
-  <input id="rate_originality_as_5" type="button" value="Not original" />
-</div>
+<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 3) %>
+  <%= f.submit "Somewhat original", class: "submit_originality_rating" %>
+<% end %>
+
+<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 4) %>
+  <%= f.submit "A bit original", class: "submit_originality_rating" %>
+<% end %>
+
+<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 5) %>
+  <%= f.submit "Not original", class: "submit_originality_rating" %>
+<% end %>
+
+<ul>
+  <% (1..5).each do |number| %>
+  <li><%= number %></li>
+  <% end %>
+</ul>
+
 
 <br><br>
 

@@ -18,18 +18,19 @@
 
 $(function (){
 
-  $('#originality_score_form').
-    on('ajax:success', function(evt, data, status, xhr){
-      // console.log('success: ', data);   
-      $('#originality_score').html(data);
-    }).
-    on('ajax:error', function(xhr, status, error){
-      console.log('error: ', error);
-    }); // end click listener
+$('.originality_score_form').
+  on('submit', function(){
+    console.log("submitted");
+  }).
+  on('ajax:success', function(evt, data, status, xhr){
+    // console.log('success: ', data);   
+    $('#originality_score').html(data);
+  }).
+  on('ajax:error', function(xhr, status, error){
+    console.log('error: ', error);
+  }); // end listener for ajax response
 
-    $('#vote_weight').on('keyup', function(){
-      $('#originality_score_form').submit();
-    }) // end search listener
+   // end key up, ie search, listener
 
 }); // end document ready
 
