@@ -10,10 +10,85 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require normalize-rails
+ *= require_tree .
  */
+
+ body {
+  padding: 1em;
+ }
 
 .pitch-image {
   max-height: 200px;
+}
+
+.arrow-up-unselected {
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent; 
+  border-bottom: 15px solid grey;
+  margin-bottom: 8px;
+  background-color: white;
+  border-top: none;
+  padding: 0px;
+}
+
+.arrow-up-selected {
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent; 
+  border-bottom: 15px solid darkorange;
+  margin-bottom: 8px;
+  background-color: white;
+  border-top: none;
+  padding: 0px;
+}
+
+.arrow-down-unselected {
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent; 
+  border-top: 15px solid grey;
+  margin-top: 8px;
+  background-color: white;
+  border-bottom: none;
+  padding: 0px;
+}
+
+.arrow-down-selected {
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent; 
+  border-top: 15px solid purple;
+  margin-top: 8px;
+  background-color: white;
+  border-bottom: none;
+  padding: 0px;
+}
+
+.score-unselected {
+  padding-left: 5px;
+  font-weight: bold;
+  color: grey;
+}
+
+.score-up {
+  padding-left: 5px;
+  font-weight: bold;
+  color: darkorange;
+}
+
+.score-down {
+  padding-left: 5px;
+  font-weight: bold;
+  color: purple;
+}
+
+#idea_score {
+  margin-left: 8px;
 }

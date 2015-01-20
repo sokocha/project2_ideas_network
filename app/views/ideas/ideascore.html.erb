@@ -1,1 +1,9 @@
-<%= @idea.current_score %>
+<%= form_for @idea, url: like_idea_path(@idea), method: :put, remote: true, html: { id: "upvote-form", class: "idea-voting-form" } do |f| %>
+  <%= f.submit "Upvote", class: ['vote-on-idea', selected_or_unselected_depending_on_user_vote(:up, @idea)], id: "upvote-on-idea" %>
+<% end %>
+
+<span id="show-score"><%= @idea.current_score %></span>
+
+<%= form_for @idea, url: dislike_idea_path(@idea), method: :put, remote: true, html: { id: "downvote-form", class: "idea-voting-form" } do |f| %>
+  <%= f.submit "Downvote", class: ["vote-on-idea", selected_or_unselected_depending_on_user_vote(:down, @idea)], id: "downvote-on-idea" %>
+<% end %>
