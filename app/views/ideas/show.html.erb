@@ -26,15 +26,27 @@
 <br><br>
 
 <h3>Originality score</h3>
-<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { id: "originality_score_form" } do |f| %>
+<%#= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { id: "originality_score_form" } do |f| %>
 
-  <%= label_tag :vote_weight, "How original do you think this idea is?" %>
-  <%= number_field_tag :vote_weight %>
-  <br><br>
-  <div class="actions">
-    <%= f.submit "Submit", id: "submit_originality_rating" %>
-  </div>
-<% end %>
+  <%#= label_tag :vote_weight, "How original do you think this idea is?" %>
+  <%#= number_field_tag :vote_weight %>
+<!--   <br><br>
+  <div class="actions"> -->
+    <%#= f.submit "Submit", id: "submit_originality_rating" %>
+<!--   </div> -->
+<%# end %>
+
+<!-- How to do remote true with just buttons... maybe just set up an ajax request separately to the form...  -->
+
+<div id="originality-score-wrapper">
+  <input id="rate_originality_as_1" type="button" value="One of a kind" />
+  <input id="rate_originality_as_2" type="button" value="Original" />
+  <input id="rate_originality_as_3" type="button" value="Somewhat original" />
+  <input id="rate_originality_as_4" type="button" value="A bit original" />
+  <input id="rate_originality_as_5" type="button" value="Not original" />
+</div>
+
+<br><br>
 
 <p>Originality Score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
 
