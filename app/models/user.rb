@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :ideas
   has_many :categories
+  has_many :comments
 
   validates :email, presence: true
   validates :email, length: {minimum: 6}

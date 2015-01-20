@@ -5,9 +5,14 @@ Rails.application.routes.draw do
 
   
   root 'ideas#index'
-  resources :ideas
+  resources :ideas do
+    resources :comments, :only => [:create, :destroy, :new]
+  end
+
+
   resources :categories
   resources :users, only: [:show, :edit, :update] 
+
 
   resources :ideas do
     member do
@@ -17,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comments, :only => [:create, :destroy]
+  
 
   # Lisa: haven't put the below line in yet because there isn't a users controller yet
   # resources :users, only: [:index, :show, :edit, :update]

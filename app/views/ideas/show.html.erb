@@ -50,15 +50,14 @@
 <br><br><br><br>
 
 
-<%= render :partial => "comments/form", :locals => { :comment => @new_comment } %>
+<h4>Write a Comment:</h4>
+  <%= form_for([@idea, Comment.new]) do |f| %>
+    <%= render partial: '/comments/form', locals: { f: f } %>
+  <% end %>
+  <%= render partial:'comments/comment', :collection => @comments, :as => :comment %>
 
-<%= render :partial => "comments/comment", :collection => @comments, :as => :comment %>
-
-
-
-
-
-<br><br>
+<br>
+<br>
 
 <% if can? :update, @idea %>
 <%= link_to 'Edit above details', edit_idea_path(@idea) %> 

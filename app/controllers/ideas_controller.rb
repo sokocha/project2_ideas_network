@@ -9,7 +9,9 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
     @comments = @idea.comment_threads.order('created_at desc')
-    @new_comment = Comment.build_from(@idea, current_user.id, "")
+    # @comment = Comment.build_from(@idea, current_user.id, "")
+    #@comment = current_user.comments.new
+    @comment = Comment.build_from(@idea, current_user.id, "")
   end
 
 
