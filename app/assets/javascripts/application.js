@@ -19,17 +19,29 @@
 $(function (){
 
 // 'listen' for the form to be submitted. Submitting the form, i.e. clicking one of the five buttons, triggers an ajax request. If the ajax request is successful, the updated score will be inserted onto the page.
-$('.originality_score_form').
-  on('submit', function(){
-    console.log("submitted");
-  }).
-  on('ajax:success', function(evt, data, status, xhr){
-    // console.log('success: ', data);   
-    $('#originality_score').html(data);
-  }).
-  on('ajax:error', function(xhr, status, error){
-    console.log('error: ', error);
-  }); // end listener for submitting the form
+  $('.originality_score_form').
+    on('submit', function(){
+      console.log("originality score submitted");
+    }).
+    on('ajax:success', function(evt, data, status, xhr){
+      // console.log('success: ', data);   
+      $('#originality_score').html(data);
+    }).
+    on('ajax:error', function(xhr, status, error){
+      console.log('error: ', error);
+    }); // end listener for submitting the form
+
+  $('.idea-voting-form').
+    on('submit', function(){
+      console.log("vote submitted");
+    }).
+    on('ajax:success', function(evt, data, status, xhr){
+      // console.log('success: ', data);   
+      $('#idea_score').html(data);
+    }).
+    on('ajax:error', function(xhr, status, error){
+      console.log('error: ', error);
+    }); // end listener for submitting the form
 
 }); // end document ready
 

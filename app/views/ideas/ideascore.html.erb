@@ -1,0 +1,1 @@
+<%= @idea.get_upvotes(:vote_scope => 'vote_for_idea').size - @idea.get_downvotes(:vote_scope => 'vote_for_idea').size %>

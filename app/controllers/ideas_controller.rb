@@ -38,7 +38,7 @@ class IdeasController < ApplicationController
   def upvote
     @idea = Idea.find(params[:id])
     @idea.liked_by current_user, :vote_scope => 'vote_for_idea'
-    redirect_to @idea
+    render :template => "ideas/ideascore", layout: false if request.xhr?
   end
 
   def downvote
