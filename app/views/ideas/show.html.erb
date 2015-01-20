@@ -27,41 +27,13 @@
 
 <h3>Originality score</h3>
 <p>"How original do you think this idea is?"</p>
-
-<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
-  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 1) %>
-  <br><br>
-  <%= f.submit "One of a kind", class: "submit_originality_rating" %>
+<!-- Creates 5 forms. Originality score goes from 1 to 5. Each possible score gets a button (and form). -->
+<% ['One of a kind', 'Original', 'Somewhat original', 'A bit original', 'Not original' ].each_with_index do |text, index| %>
+  <%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+    <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => (index + 1) ) %>
+    <%= f.submit text, class: "submit_originality_rating" %>
+  <% end %>  
 <% end %>
-
-<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
-  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 2) %>
-  <%= f.submit "Original", class: "submit_originality_rating" %>
-<% end %>
-
-<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
-  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 3) %>
-  <%= f.submit "Somewhat original", class: "submit_originality_rating" %>
-<% end %>
-
-<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
-  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 4) %>
-  <%= f.submit "A bit original", class: "submit_originality_rating" %>
-<% end %>
-
-<%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
-  <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => 5) %>
-  <%= f.submit "Not original", class: "submit_originality_rating" %>
-<% end %>
-
-<ul>
-  <% (1..5).each do |number| %>
-  <li><%= number %></li>
-  <% end %>
-</ul>
-
-
-<br><br>
 
 <p>Originality Score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
 

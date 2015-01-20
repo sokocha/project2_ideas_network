@@ -18,6 +18,7 @@
 
 $(function (){
 
+// 'listen' for the form to be submitted. Submitting the form, i.e. clicking one of the five buttons, triggers an ajax request. If the ajax request is successful, the updated score will be inserted onto the page.
 $('.originality_score_form').
   on('submit', function(){
     console.log("submitted");
@@ -28,12 +29,9 @@ $('.originality_score_form').
   }).
   on('ajax:error', function(xhr, status, error){
     console.log('error: ', error);
-  }); // end listener for ajax response
-
-   // end key up, ie search, listener
+  }); // end listener for submitting the form
 
 }); // end document ready
 
-// bind the function to an event, when the document is ready the ajax request gets bound to the 'click' event. Turbolinks doesn't omit a document ready event it omits a document change event. The gem sets up change events for document ready. 
 
 
