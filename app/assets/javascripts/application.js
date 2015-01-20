@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -31,5 +32,7 @@ $(function (){
     }) // end search listener
 
 }); // end document ready
+
+// bind the function to an event, when the document is ready the ajax request gets bound to the 'click' event. Turbolinks doesn't omit a document ready event it omits a document change event. The gem sets up change events for document ready. 
 
 
