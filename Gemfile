@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'acts_as_commentable_with_threading'
 gem 'ransack'
 gem 'rmagick'
 gem 'carrierwave', '0.9.0'
