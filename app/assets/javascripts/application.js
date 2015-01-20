@@ -36,8 +36,12 @@ $(function (){
       console.log("vote submitted");
     }).
     on('ajax:success', '.idea-voting-form', function(evt, data, status, xhr){
-      // console.log('success: ', data);   
+      // console.log('success: ', data); 
+      // if user hit the downvote, this class, and if upvote, this other class (and remove other one if it's there)
+      // if it's a repeat click, get rid of the all the styley classes
+      console.log($(this).attr("id"))
       $('#idea_score').html(data);
+      $('#show-score').addClass('score-up');
     }).
     on('ajax:error', '.idea-voting-form', function(xhr, status, error){
       console.log('error: ', error);
