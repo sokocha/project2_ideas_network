@@ -2,6 +2,7 @@ class Idea < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   acts_as_votable
+  acts_as_commentable
 
   validates :title, presence: true
   validates :title, length: {in: 5..140}
