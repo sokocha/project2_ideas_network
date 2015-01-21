@@ -5,13 +5,18 @@ class ApplicationController < ActionController::Base
 
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, alert: "You can't access this page"
+    respond_to do |format|
+      format.html{ redirect_to root_path, alert: "You can't access this page" }
+      # when you are unable to access the controller action, in this case we received a js format request and the way we'll respond to it is as below. Render this view and tell the browser the reponse is a 403. Because before it was rendering a 200 which translates to success, so it 
+      format.js { render 'application/permission_denied', status: 403 }
     end
+  end
 
   before_filter :set_search
-
   def set_search
-    @search = Idea.search(params[:q])
+    @q = Idea.ransack(params[:q])
+    @ideas = @q.result(distinct: true)
+    @ideas = @q.result.paginate(page: params[:page], per_page: 1).order('created_at DESC')
   end
 
 end

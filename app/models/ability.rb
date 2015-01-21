@@ -16,11 +16,10 @@ class Ability
       can :upvote, Idea
       can :downvote, Idea
       cannot :destroy, Idea       
-       
+
       can :update, Idea do |idea|
-        idea.try(:user) == user
+        idea.try(:user_id) == user.id
       end
-      # Not allowed to give an originality score to an idea
       
       can :score_originality, Idea do |idea|
         idea.try(:user_id) != user.id

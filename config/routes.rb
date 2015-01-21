@@ -5,14 +5,13 @@ Rails.application.routes.draw do
 
   
   root 'ideas#index'
+
   resources :ideas do
     resources :comments, :only => [:create, :destroy, :new]
   end
 
-
   resources :categories
   resources :users, only: [:show, :edit, :update] 
-
 
   resources :ideas do
     member do

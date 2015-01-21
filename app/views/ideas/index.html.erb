@@ -1,4 +1,4 @@
-<p>Welcome. See all the wonderful ideas.</p>
+<br>
 <%= link_to 'List my idea', new_idea_path %><br>
 <%= link_to 'Create Category', new_category_path if can? :create, Category %>
 
@@ -6,8 +6,8 @@
   <%= render @ideas if can? :index, Idea %><br><br>
 </div>
  
-<div id="infinite-scrolling">
-  <%#= will_paginate @ideas %>
+<div>
+  <%= will_paginate @ideas %>
 </div>
 
 

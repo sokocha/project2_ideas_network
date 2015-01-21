@@ -1,10 +1,8 @@
 class IdeasController < ApplicationController
 
-  # Lisa: if you remove the except: :index you get stuck in a redirect loop. I believe this is because of the index being the root route.
-  load_and_authorize_resource # except: :index
+  load_and_authorize_resource 
 
-  # rescue CanCan::AccessDenied
-  #    exception.message
+
   
   # def new
   # end
@@ -23,8 +21,7 @@ class IdeasController < ApplicationController
 
 
   def index
-    # @q = Idea.search(params[:q])
-    # @ideas = @q.result.paginate(page: params[:page], per_page: 1).order('created_at DESC')
+    
   end
 
   # def edit
@@ -82,11 +79,11 @@ class IdeasController < ApplicationController
   end
 
   def score_originality
-
+    # rescue CanCan::AccessDenied
+    #    exception.message
     @idea = Idea.find(params[:id])
     @idea.liked_by current_user, :vote_scope => 'rate_originality', :vote_weight => params[:vote_weight]
     render :template => "ideas/originalityscore", layout: false if request.xhr?
-    
   end
 
 
