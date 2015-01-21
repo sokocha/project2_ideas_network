@@ -1,9 +1,11 @@
-<%= form_for idea, url: like_idea_path(idea), method: :put, remote: true, html: { id: "upvote-form", class: "idea-voting-form" } do |f| %>
-  <%= f.submit "Upvote", class: ['vote-on-idea', 'arrow-up-unselected',selected_or_unselected_depending_on_user_vote(:up, idea)], id: "upvote-on-idea" %>
-<% end %>
+<div class="<%= voted_state(idea) %>">
+  <%= form_for idea, url: like_idea_path(idea), method: :put, remote: true, html: { id: "upvote-form", class: "idea-voting-form" } do |f| %>
+    <%= f.submit "Upvote", class: ['vote-on-idea', 'arrow-up-unselected',selected_or_unselected_depending_on_user_vote(:up, idea)], id: "upvote-on-idea" %>
+  <% end %>
 
-<span id="show-score"><%= idea.current_score %></span>
+  <span class="show-score"><%= idea.current_score %></span>
 
-<%= form_for idea, url: dislike_idea_path(idea), method: :put, remote: true, html: { id: "downvote-form", class: "idea-voting-form" } do |f| %>
-  <%= f.submit "Downvote", class: ["vote-on-idea", 'arrow-down-unselected',selected_or_unselected_depending_on_user_vote(:down, idea)], id: "downvote-on-idea" %>
-<% end %>
+  <%= form_for idea, url: dislike_idea_path(idea), method: :put, remote: true, html: { id: "downvote-form", class: "idea-voting-form" } do |f| %>
+    <%= f.submit "Downvote", class: ["vote-on-idea", 'arrow-down-unselected',selected_or_unselected_depending_on_user_vote(:down, idea)], id: "downvote-on-idea" %>
+  <% end %>
+</div>

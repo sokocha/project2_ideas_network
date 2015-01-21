@@ -18,6 +18,15 @@
 /* START OF -----------------------------*/
 /* UP AND DOWNVOTE STYLES */
 
+.upvoted .show-score {
+  color: darkorange;
+}
+
+.downvoted .show-score {
+  color: purple;
+}
+
+
 .arrow-up-unselected {
   width: 0; 
   height: 0; 
@@ -86,7 +95,7 @@
   color: purple;
 }
 
-#show-score {
+.show-score {
   margin-left: 3px;
   padding-left: 2px;
   font-weight: bold;
