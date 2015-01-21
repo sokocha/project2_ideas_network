@@ -1,4 +1,7 @@
 <br><br>
+<div id="idea_score">
+  <%= render :partial => "ideas/ideascore", locals: { idea: @idea} %>
+</div>
 <h1><%= @idea.title %></h1>
 <p><%= @idea.description %></p>
 <h3>Category: <%= @idea.category.name %></h3>
@@ -17,9 +20,8 @@ Watch the video</a></p>
 </p><br><br>
 
 <h3>Votes</h3>
-<div id="idea_score">
-  <%= render :template => "ideas/ideascore" %>
-</div>
+<p>Upvotes: <%= @idea.get_upvotes(:vote_scope => 'vote_for_idea').size %></p>
+<p>Downvotes: <%= @idea.get_downvotes(:vote_scope => 'vote_for_idea').size %></p>
 
 <br>
 
