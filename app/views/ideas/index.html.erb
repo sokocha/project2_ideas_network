@@ -1,29 +1,12 @@
-<p>Welcome. See all the wonderful ideas.</p>
+<br>
 <%= link_to 'List my idea', new_idea_path %><br>
 <%= link_to 'Create Category', new_category_path if can? :create, Category %>
-
-
-<!-- <div class="page-header">
-</div>
-  -->
-
-  <% content_for :ideas_search do %>
-    <div class="large-8 small-9 columns">
-      <%= search_form_for @q do |f| %>
-        <%= f.text_field :title_cont, class: "radius-left expand", placeholder: "Idea title" %>
-    </div>
-      <div class="large-4 small-3 columns">
-          <%= f.submit "Search", class: "radius-right button" %>
-      </div>
-    <% end %>
-  <% end %>
-  
 
 <div id="my-ideas">
   <%= render @ideas if can? :index, Idea %><br><br>
 </div>
  
-<div id="infinite-scrolling">
+<div>
   <%= will_paginate @ideas %>
 </div>
 

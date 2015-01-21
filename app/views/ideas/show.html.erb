@@ -24,13 +24,15 @@ Watch the video</a></p>
 <br>
 
 <h3>Originality score</h3>
-<p>"How original do you think this idea is?"</p>
-<!-- Creates 5 forms. Originality score goes from 1 to 5. Each possible score gets a button (and form). -->
-<% ['One of a kind', 'Original', 'Somewhat original', 'A bit original', 'Not original' ].each_with_index do |text, index| %>
-  <%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
-    <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => (index + 1) ) %>
-    <%= f.submit text, class: "submit_originality_rating" %>
-  <% end %>  
+<% if can? :originality_score, @idea %>
+  <p>How original do you think this idea is?</p>
+  <!-- Creates 5 forms. Originality score goes from 1 to 5. Each possible score gets a button (and form). -->
+  <% ['One of a kind', 'Original', 'Somewhat original', 'A bit original', 'Not original' ].each_with_index do |text, index| %>
+    <%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+      <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => (index + 1) ) %>
+      <%= f.submit text, class: "submit_originality_rating" %>
+    <% end %>  
+  <% end %>
 <% end %>
 
 <p>Originality Score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
@@ -43,12 +45,11 @@ Watch the video</a></p>
     <%= render partial: '/comments/form', locals: { f: f } %>
   <% end %>
   <% elsif current_user == nil %>
-  <%= link_to "Login To Comment", new_user_session_path %>
+  <%= link_to "Login to comment", new_user_session_path %> |
 <% end %>
 <%= render partial:'comments/comment', :collection => @comments, :as => :comment %>
 
-<br>
-<br>
+
 
 <% if can? :update, @idea %>
 <%= link_to 'Edit above details', edit_idea_path(@idea) %> 
