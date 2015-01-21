@@ -31,7 +31,7 @@ $(function (){
       console.log('error: ', error);
     }); // end listener for submitting the form
 
-  $('#idea_score').
+  $('.idea_score').
     on('submit', '.idea-voting-form', function(){
       console.log("vote submitted");
     }).
@@ -40,7 +40,9 @@ $(function (){
       // if user hit the downvote, this class, and if upvote, this other class (and remove other one if it's there)
       // if it's a repeat click, get rid of the all the styley classes
 
-      $('#idea_score').html(data);
+      // this will not work if 
+      var $fragmentToUpdate = $(evt.target).closest('.idea_score');
+      $fragmentToUpdate.html(data);
 
       // console.log($(this).attr("id"));
       // voteDirection = ($(this).attr("id"));
