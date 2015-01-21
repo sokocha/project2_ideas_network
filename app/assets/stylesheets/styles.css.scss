@@ -137,5 +137,15 @@
 /* END OF -----------------------------*/
 /* ERROR VALIDATION STYLES */
 
+// title {
+//     @include media(769px) {
+//       @include span-columns(6);
+//     }
+//  }
 
+// h1 {
+//   @include media(min-width 320px max-width 480px, 6) {
+//     @include span-columns(6);
+//   }
+// }
 
