@@ -1,29 +1,28 @@
 <br><br>
 <h1><%= @idea.title %></h1>
 <p><%= @idea.description %></p>
-<h3>Category: <%= @idea.category.name %></h3>
-<p>
-  <b>Image:</b>
-  <%= image_tag @idea.idea_image.url %>
-</p>
-
-Watch the video</a></p>
-
-<li><%= @idea.video_link_html %></li>
-
-<h3>Feedback requested: <%= @idea.feedback_type %></h3> 
-
 <p>Idea submitted on <%= @idea.created_at.strftime("%b %-d, %Y") %>, by <%= link_to User.find(@idea.user_id).try(:username), user_path(@idea.user_id)  %>
-</p><br><br>
+</p><br>
+<h4> Category: <%= link_to @idea.category.name, category_path(@idea.category)  %></h4>
+<p>
 
-<h3>Votes</h3>
+  <%= image_tag @idea.idea_image.url %>
+
+
+<%= @idea.video_link_html %>
+
+<h4>Feedback requested: <%= @idea.feedback_type %></h4><br>
+
+
+
+<h4>Votes</h4>
 <div id="idea_score">
   <%= render :template => "ideas/ideascore" %>
 </div>
 
 <br>
 
-<h3>Originality score</h3>
+<h4>Originality score</h4>
 <% if can? :score_originality, @idea %>
   <p>How original do you think this idea is?</p>
   <!-- Creates 5 forms. Originality score goes from 1 to 5. Each possible score gets a button (and form). -->
@@ -37,7 +36,7 @@ Watch the video</a></p>
 
 <p>Originality Score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
 
-<br><br><br><br>
+<br>
 
 <% if current_user %>
   <h4>Write a Comment:</h4>
