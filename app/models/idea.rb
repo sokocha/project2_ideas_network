@@ -36,6 +36,14 @@ class Idea < ActiveRecord::Base
     self.get_upvotes(:vote_scope => 'vote_for_idea').size + self.get_downvotes(:vote_scope => 'vote_for_idea').size
   end
 
+  auto_html_for :video_link do
+    html_escape
+    image
+    youtube(:width => 400, :height => 250, :autoplay => true)
+    link :target => "_blank", :rel => "nofollow"
+    simple_format
+  end
+
 
    private
 
