@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'neat'
+gem 'bourbon'
 gem "auto_html"
 gem 'acts_as_commentable_with_threading'
 gem 'ransack'
