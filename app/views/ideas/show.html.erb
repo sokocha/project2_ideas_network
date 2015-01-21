@@ -35,12 +35,15 @@
 
 <br><br><br><br>
 
-
-<h4>Write a Comment:</h4>
+<% if current_user %>
+  <h4>Write a Comment:</h4>
   <%= form_for([@idea, Comment.new]) do |f| %>
     <%= render partial: '/comments/form', locals: { f: f } %>
   <% end %>
-  <%= render partial:'comments/comment', :collection => @comments, :as => :comment %>
+  <% elsif current_user == nil %>
+  <%= link_to "Login To Comment", new_user_session_path %>
+<% end %>
+<%= render partial:'comments/comment', :collection => @comments, :as => :comment %>
 
 <br>
 <br>
