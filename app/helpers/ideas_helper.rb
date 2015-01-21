@@ -6,8 +6,8 @@ module IdeasHelper
       when :down then :disliked?
     end
     if current_user
-    current_user.send(liking_method, idea, :vote_scope => 'vote_for_idea') ? "arrow-#{direction}-selected" : "arrow-#{direction}-unselected"
-  end
+      current_user.send(liking_method, idea, :vote_scope => 'vote_for_idea') ? "arrow-#{direction}-selected" : "arrow-#{direction}-unselected"
+    end
   end
 
 
