@@ -42,13 +42,27 @@ class IdeasController < ApplicationController
 
   def upvote
     @idea = Idea.find(params[:id])
-    @idea.liked_by current_user, :vote_scope => 'vote_for_idea'
+    
+    if current_user.send(:liked?, @idea, :vote_scope => 'vote_for_idea')
+      @idea.unliked_by current_user, :vote_scope => 'vote_for_idea'
+    else
+      @idea.liked_by current_user, :vote_scope => 'vote_for_idea'
+    end
+
     render :template => "ideas/ideascore", layout: false if request.xhr?
   end
 
   def downvote
     @idea = Idea.find(params[:id])
-    @idea.downvote_from current_user, :vote_scope => 'vote_for_idea'
+
+    if current_user.send(:disliked?, @idea, :vote_scope => 'vote_for_idea')
+      @idea.undisliked_by current_user, :vote_scope => 'vote_for_idea'
+    else
+      @idea.disliked_by current_user, :vote_scope => 'vote_for_idea'
+    end
+
+    # @idea.downvote_from current_user, :vote_scope => 'vote_for_idea'
+
     render :template => "ideas/ideascore", layout: false if request.xhr?
   end
 

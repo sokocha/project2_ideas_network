@@ -39,9 +39,22 @@ $(function (){
       // console.log('success: ', data); 
       // if user hit the downvote, this class, and if upvote, this other class (and remove other one if it's there)
       // if it's a repeat click, get rid of the all the styley classes
-      console.log($(this).attr("id"))
+
       $('#idea_score').html(data);
-      $('#show-score').addClass('score-up');
+
+      console.log($(this).attr("id"));
+      voteDirection = ($(this).attr("id"));
+      $('#show-score').removeClass('score-up');
+      $('#show-score').removeClass('score-down');
+      
+      if(voteDirection == "upvote-form"){
+        $('#show-score').addClass('score-up');
+      }
+      else {
+        $('#show-score').addClass('score-down');
+      }
+
+      
     }).
     on('ajax:error', '.idea-voting-form', function(xhr, status, error){
       console.log('error: ', error);
