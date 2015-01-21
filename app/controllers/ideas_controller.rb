@@ -40,8 +40,16 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id if current_user
-    @idea.save
-    redirect_to @idea
+    # @idea.save
+    respond_to do |format|
+      if @idea.save
+        format.html { redirect_to @idea, notice: 'Idea has been listed.' }
+        format.json { render :show, status: :created, location: @idea }
+      else
+        format.html { render :new }
+        format.json { render json: @idea.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def upvote
