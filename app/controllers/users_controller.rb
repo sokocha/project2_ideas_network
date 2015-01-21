@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
-  def edit
-  end
+  # def edit
+  # end
 
   def update
     @user.update(user_params)
@@ -11,8 +12,6 @@ class UsersController < ApplicationController
 
   def show
   end
-
-
 
 
 
