@@ -9,6 +9,8 @@
 
 <p><a href="https://www.youtube.com/watch?v=<%= @idea.video_link %>" target="_blank">Watch the video</a></p>
 
+<li><%= @idea.video_link_html %></li>
+
 <h3>Feedback requested: <%= @idea.feedback_type %></h3> 
 
 <p>Idea submitted on <%= @idea.created_at.strftime("%b %-d, %Y") %>, by <%= link_to User.find(@idea.user_id).try(:username), user_path(@idea.user_id)  %>
