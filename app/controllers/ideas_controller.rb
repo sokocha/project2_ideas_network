@@ -54,7 +54,8 @@ class IdeasController < ApplicationController
   def upvote
     @idea = Idea.find(params[:id])
     
-    if current_user.send(:liked?, @idea, :vote_scope => 'vote_for_idea')
+    # might want to check if can work without send and maybe use this syntax
+    if current_user.liked?(@idea, :vote_scope => 'vote_for_idea')
       @idea.unliked_by current_user, :vote_scope => 'vote_for_idea'
     else
       @idea.liked_by current_user, :vote_scope => 'vote_for_idea'
