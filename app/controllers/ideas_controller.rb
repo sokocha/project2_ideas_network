@@ -60,7 +60,7 @@ class IdeasController < ApplicationController
       @idea.liked_by current_user, :vote_scope => 'vote_for_idea'
     end
 
-    render :template => "ideas/ideascore", layout: false if request.xhr?
+    render :partial => "ideas/ideascore", locals: { idea: @idea}, layout: false if request.xhr?
   end
 
   def downvote
@@ -74,7 +74,7 @@ class IdeasController < ApplicationController
 
     # @idea.downvote_from current_user, :vote_scope => 'vote_for_idea'
 
-    render :template => "ideas/ideascore", layout: false if request.xhr?
+    render :partial => "ideas/ideascore", locals: { idea: @idea}, layout: false if request.xhr?
   end
 
   def score_originality

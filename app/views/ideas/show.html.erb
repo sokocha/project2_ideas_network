@@ -1,5 +1,11 @@
 <br><br>
+
+<div id="idea_score">
+  <%= render :partial => "ideas/ideascore", locals: { idea: @idea} %>
+</div>
 <h3><%= @idea.title %></h3>
+>>>>>>> voting_on_index_page
+
 <p><%= @idea.description %></p>
 <p>Submitted to <%= link_to @idea.category.name, category_path(@idea.category)  %> by <%= link_to User.find(@idea.user_id).try(:username), user_path(@idea.user_id)  %> on <%= @idea.created_at.strftime("%b %-d, %Y") %> 
 </p>
@@ -10,12 +16,10 @@
 
 <h4>Feedback requested: <%= @idea.feedback_type %></h4><br>
 
-
-
-<h4>Votes</h4>
-<div id="idea_score">
-  <%= render :template => "ideas/ideascore" %>
-</div>
+<h3>Votes</h3>
+<p>Upvotes: <%= @idea.get_upvotes(:vote_scope => 'vote_for_idea').size %></p>
+<p>Downvotes: <%= @idea.get_downvotes(:vote_scope => 'vote_for_idea').size %></p>
+>>>>>>> voting_on_index_page
 
 <br>
 
