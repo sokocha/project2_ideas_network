@@ -20,8 +20,7 @@ class IdeasController < ApplicationController
   end
 
 
-  def index
-    
+  def index   
   end
 
   # def edit

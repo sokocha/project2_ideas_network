@@ -25,8 +25,8 @@ class Ability
         idea.try(:user_id) != user.id
       end
 
-      can :update, User do |user|
-        user.try(:user_id) == user.id
+      can :update, User do |u|
+        u.id == user.id
       end
 
     else

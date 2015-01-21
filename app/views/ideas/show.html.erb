@@ -20,6 +20,7 @@
 <br>
 
 <h4>Originality score</h4>
+
 <% if can? :score_originality, @idea %>
   <p>How original do you think this idea is?</p>
   <!-- Creates 5 forms. Originality score goes from 1 to 5. Each possible score gets a button (and form). -->
@@ -29,9 +30,10 @@
       <%= f.submit text, class: "submit_originality_rating" %>
     <% end %>  
   <% end %>
+
 <% end %>
 
-<p>Originality Score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
+<p>Current score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
 
 <br>
 
@@ -48,11 +50,11 @@
 
 
 <% if can? :update, @idea %>
-<%= link_to 'Edit above details', edit_idea_path(@idea) %> 
+  <%= link_to 'Edit above details', edit_idea_path(@idea) %> 
 <% end %>
 
 <% if can? :destroy, @idea %>
-<%= link_to 'Remove this idea', @idea, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Remove this idea', @idea, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 
 <%= link_to 'Back to the homepage', ideas_path %>
