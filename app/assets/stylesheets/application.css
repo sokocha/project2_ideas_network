@@ -89,6 +89,9 @@
   color: purple;
 }
 
-#idea_score {
-  margin-left: 8px;
+#show-score {
+  margin-left: 3px;
+  padding-left: 2px;
+  font-weight: bold;
 }
+

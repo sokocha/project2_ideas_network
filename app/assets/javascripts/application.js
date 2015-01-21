@@ -42,17 +42,17 @@ $(function (){
 
       $('#idea_score').html(data);
 
-      console.log($(this).attr("id"));
-      voteDirection = ($(this).attr("id"));
-      $('#show-score').removeClass('score-up');
-      $('#show-score').removeClass('score-down');
+      // console.log($(this).attr("id"));
+      // voteDirection = ($(this).attr("id"));
+      // $('#show-score').removeClass('score-up');
+      // $('#show-score').removeClass('score-down');
       
-      if(voteDirection == "upvote-form"){
-        $('#show-score').addClass('score-up');
-      }
-      else {
-        $('#show-score').addClass('score-down');
-      }
+      // if(voteDirection == "upvote-form"){
+      //   $('#show-score').addClass('score-up');
+      // }
+      // else {
+      //   $('#show-score').addClass('score-down');
+      // }
 
       
     }).
