@@ -1,0 +1,10 @@
+<div id="searchbar">
+  <%= search_form_for @search do |f| %>
+    <%= f.text_field :title_cont, placeholder: "Idea title" %>
+    <br>
+    <br>
+    <div>
+      <%= f.submit "Search"%>
+    </div>
+  <% end %>
+</div>

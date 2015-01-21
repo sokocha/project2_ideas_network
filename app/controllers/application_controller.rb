@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, alert: "You can't access this page"
     end
+
+  before_filter :set_search
+
+  def set_search
+    @search = Idea.search(params[:q])
+  end
+
 end
