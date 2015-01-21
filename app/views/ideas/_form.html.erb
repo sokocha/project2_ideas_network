@@ -13,29 +13,43 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title, "What's the headline here? (Describe your idea in one line. This will appear on the homepage.)" %><br>
-    <%= f.text_field :title %><br><br>
-    <%= f.label :description, "OK! People want to know more. Here's your chance to describe your idea in more depth." %><br>
-    <%= f.text_area :description %><br><br>
-    <%= f.label :category_id, 'Category' %><br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %><br><br>
+
+    <%= f.label :title, "What's the headline here? (Describe your idea in one line. This will appear on the homepage.)" %>
+    <br>
+    <%= f.text_field :title %>
+    <br><br>
+    <%= f.label :description, "OK! People want to know more. Here's your chance to describe your idea in more depth." %>
+    <br>
+    <%= f.text_area :description %>
+    <br><br>
+    <%= f.label :category_id, 'Category' %>
+    <br>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+    <br><br>
 
     <div>
-    <%= f.label :idea_image %>
-    <%= f.file_field :idea_image %>
-   <%= f.label :remote_idea_image_url %>
-   <%= f.text_field :remote_idea_image_url %>
-   </div>
-   <br>
-    <%= f.label :video_link, 'ID of YouTube video of your pitch' %><br>
-    <%= f.text_field :video_link %><br><br>
-    <%= f.label :feedback_type, 'What kind of feedback do you want?' %><br>
-    <%= f.select :feedback_type, ["Devil's advocate (1)", "Be honest (2)", "Meh, I dunno (3)", "Please be nice (4)", "Lie to me (5)" ] %><br><br>
+      <%= f.label :idea_image %>
+      <%= f.file_field :idea_image %>
+      <%= f.label :remote_idea_image_url %>
+      <%= f.text_field :remote_idea_image_url %>
+    </div>
+
+    <br>
+    <%= f.label :video_link, 'ID of YouTube video of your pitch' %>
+    <br>
+    <%= f.text_field :video_link %>
+    <br><br>
+    <%= f.label :feedback_type, 'What kind of feedback do you want?' %>
+    <br>
+    <%= f.select :feedback_type, ["Devil's advocate (1)", "Be honest (2)", "Meh, I dunno (3)", "Please be nice (4)", "Lie to me (5)" ] %>
+    <br><br>
   </div>
+  
   <br><br>
   <div class="actions">
     <%= f.submit %>
   </div>
+
   <br><br>
 
 <% end %>

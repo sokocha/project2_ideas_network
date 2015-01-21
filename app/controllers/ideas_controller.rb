@@ -11,7 +11,7 @@ class IdeasController < ApplicationController
     @comments = @idea.comment_threads.order('created_at desc')
     # @comment = Comment.build_from(@idea, current_user.id, "")
     #@comment = current_user.comments.new
-    @comment = Comment.build_from(@idea, current_user.id, "")
+   # @comment = Comment.build_from(@idea, current_user.id, "")
   end
 
 
