@@ -1,23 +1,30 @@
 
  body {
-  padding: 1em;
+  padding: 1.2em;
  }
 
 .pitch-image {
   max-height: 200px;
 }
 
-#idea_score {
+.idea_score {
   float: left;
   padding-right: 20px;
-}
-
+} 
 
 
 
 
 /* START OF -----------------------------*/
 /* UP AND DOWNVOTE STYLES */
+
+.upvoted .show-score {
+  color: darkorange;
+}
+
+.downvoted .show-score {
+  color: purple;
+}
 
 .arrow-up-unselected {
   width: 0; 
@@ -87,7 +94,7 @@
   color: purple;
 }
 
-#show-score {
+.show-score {
   margin-left: 3px;
   padding-left: 2px;
   font-weight: bold;

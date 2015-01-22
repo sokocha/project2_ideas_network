@@ -1,7 +1,7 @@
 <br><br>
 
 <div class= "container">
-<div id="idea_score">
+<div class="idea_score">
   <%= render :partial => "ideas/ideascore", locals: { idea: @idea} %>
 </div>
 <h3><%= @idea.title %></h3>
@@ -12,8 +12,6 @@
 
 <%= image_tag @idea.idea_image.url %>
 <h4>Feedback requested: <%= @idea.feedback_type %></h4><br>
-
-
 
 
 
@@ -57,17 +55,7 @@
     </div>
   </li>
   
-
-
-
-
-
-
 <br>
-
-
-
-
 
 <% if can? :update, @idea %>
   <%= link_to 'Edit above details', edit_idea_path(@idea) %> 
