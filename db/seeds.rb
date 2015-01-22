@@ -10,6 +10,7 @@
 User.delete_all
 Idea.delete_all
 Category.delete_all
+Comment.delete_all
 
 admin_user = User.create!(email: "admin@idea.com", password: "password", role: "admin", username: "admin", bio: "I am a benevolent dictator. Also I like backgammon.", remote_user_image_url: "http://placekitten.com/g/400/500")
 
@@ -66,7 +67,7 @@ last_user_id_for_idea_submitters = User.last.id - number_of_lurkers
 first_category_id = Category.first.id
 last_category_id = Category.last.id
 
-25.times do |n|
+15.times do |n|
     a = Idea.new
     a.title = Faker::Company.catch_phrase + " 2.0"
     a.description = "This app will " + Faker::Company.bs + " in a way that's never been done before. Initially it will only be availabile on iOS. This is because I have an iPhone. Only one of my investors has an Android phone and my dad said he doesn't much care if he can use the app anyway."
@@ -78,33 +79,46 @@ last_category_id = Category.last.id
     a.save!
 end
 
+15.times do |n|
+    a = Idea.new
+    a.title = Faker::Company.catch_phrase
+    a.description = "Ever tried to " + Faker::Company.bs + " ? Yeah, I know, it's a pain in the ass, right? This product of mine is going to make it all better. Brilliant, isn't it? Don't worry, you can thank me later. Oh yeah, and vote my idea up. kthxbai"
+    a.feedback_type = "Devil's advocate (1)"
+    a.remote_idea_image_url = "http://lorempixel.com/300/300/technics/" + (1..10).to_a.sample.to_s + "/"
+    a.video_link = you_tube_videos.sample
+    a.user_id = (first_user_id..last_user_id_for_idea_submitters).to_a.sample
+    a.category_id = (first_category_id..last_category_id).to_a.sample.to_s
+    a.save!
+end
+
 users = User.all
 ideas = Idea.all
 
-1250.times do |n|
+1100.times do |n|
   oneuser = users.sample
   oneidea = ideas.sample
   oneidea.liked_by oneuser, :vote_scope => 'vote_for_idea'
 end
 
-1150.times do |n|
+1250.times do |n|
   oneuser = users.sample
   oneidea = ideas.sample
   oneidea.disliked_by oneuser, :vote_scope => 'vote_for_idea'
 end
 
-550.times do |n|
+750.times do |n|
   oneuser = users.sample
   oneidea = ideas.sample
   oneidea.liked_by oneuser, :vote_scope => 'rate_originality', :vote_weight => (1..5).to_a.sample
 end
 
 
+possible_comments = ["My kid sister has better ideas than you.", "Obama is Muslim.", "Seriously...?", "Yawn.", "Oh yeah, that exists. It's called Twitter. Heard of it?", "Ya'll be haters.", "What utter drivel.", "Just a spot of friendly advice: keep your day job.", "I find this offensive.", "This totally makes sense, within the bounds of a patriarchal society that promotes the continued oppression of women.", "It's called SPELL CHECK, you dufus.", "Honestly, I don't know what you kids do these days.", "Is that it? I built one of those last week. In my sleep.", "Made that in a hackathon.", "That is exactly like the homework I had to do for my class. I'm in 9th grade btw.", "Can haz cheezburger?", "Bowties are cool.", "Is that you, Toni?", "Cool, cool, cool.", "So basically, it's a blog.", "Cute.", "Awwww, it's like you don't even know that was built in the 80s.", "My grandmother implemented that while recovering from her knee surgery.", "Good day, I am one of the Financial Investor Partner with Forbes, Your contact was sent to me from Forbes for possible investment partnership, I have an Investment Proposal for you. If you are interested, reply me as soon as possible. Regards Dr. Kahalifa Jamal", "whatevs"]
 
-
-
-
-
-
-
-
+125.times do |n|
+  body = possible_comments.sample
+  oneuser = users.sample
+  oneidea = ideas.sample
+  a = Comment.build_from(oneidea, oneuser.id, body)
+  a.save!
+end
