@@ -26,15 +26,19 @@
     <a href="javascript:void(0)" class="tab-link">Originality</a>
     <div class="tab-content">
       <% if can? :score_originality, @idea %>
-        <p>How original do you think this idea is?</p>
+        <h4>How original do you think this idea is?</h4>
         <!-- Creates 5 forms. Originality score goes from 1 to 5. Each possible score gets a button (and form). -->
-        <p>Current score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></p>
-        <% ['One of a kind', 'Original', 'Somewhat original', 'A bit original', 'Not original' ].each_with_index do |text, index| %>
-          <%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
-            <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => (index + 1) ) %>
-            <%= f.submit text, class: "submit_originality_rating" %>
-          <% end %>  
-        <% end %>
+
+        <ul id="originality-buttons">
+          <% ['One of a kind (1)', 'Original (2)', 'Somewhat original (3)', 'A bit original (4)', 'Not original (5)' ].each_with_index do |text, index| %>
+            <li><%= form_for @idea, url: originality_rating_idea_path(@idea), method: :put, remote: true, html: { class: "originality_score_form" } do |f| %>
+                <%= tag(:input, :type => "hidden", :name => :vote_weight, :value => (index + 1) ) %>
+                <%= f.submit text, class: "submit_originality_rating" %>
+              <% end %></li>
+          <% end %>
+        </ul>
+        <hr>
+        <h5>Current score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></h5>
 
       <% end %>
 
@@ -66,5 +70,8 @@
   <%= link_to 'Remove this idea', @idea, method: :delete, data: { confirm: "Some cared enough to submit this idea, are you sure you want to remove it? Crush their soul why don't you..." } %> |
 <% end %>
 
-<%= link_to 'Back to the homepage', ideas_path %>
 </div>
+
+<br><br>
+<%= link_to 'Back to the homepage', ideas_path %>
+<br><br><br><br>

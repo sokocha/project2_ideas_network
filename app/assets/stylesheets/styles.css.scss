@@ -36,6 +36,26 @@ h3 {
   border-color: darkgrey;
 }
 
+input.submit_originality_rating {
+  margin: 0.6em;
+  background: lightgrey;
+  border-radius: 0.2em;
+}
+
+input.submit_originality_rating:hover {
+  margin: 0.6em;
+  background: lightgrey;
+  border-radius: 0.2em;
+}
+
+ul#originality-buttons li {
+  display: inline;
+}
+
+ul#originality-buttons {
+  margin-top: 1em;
+}
+
 .user-show-data-wrapper {
   margin: 2em 1em;
 }
@@ -94,6 +114,10 @@ form#errors-list.new_user #error_explanation ul li, form#new_idea.new_idea div#e
 
 #my-ideas {
   margin-top: -5px;
+}
+
+ul.accordion-tabs {
+  max-width: 55em;
 }
 
 input#sign-up-input[type="submit"], input#create-idea[type="submit"] {

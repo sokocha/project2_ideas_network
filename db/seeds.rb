@@ -106,7 +106,7 @@ end
   oneidea.disliked_by oneuser, :vote_scope => 'vote_for_idea'
 end
 
-750.times do |n|
+150.times do |n|
   oneuser = users.sample
   oneidea = ideas.sample
   oneidea.liked_by oneuser, :vote_scope => 'rate_originality', :vote_weight => (1..5).to_a.sample
