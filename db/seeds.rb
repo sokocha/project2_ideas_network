@@ -75,19 +75,19 @@ last_category_id = Category.last.id
     a.remote_idea_image_url = "http://lorempixel.com/300/300/technics/" + (1..10).to_a.sample.to_s + "/"
     a.video_link = you_tube_videos.sample
     a.user_id = (first_user_id..last_user_id_for_idea_submitters).to_a.sample
-    a.category_id = (first_category_id..last_category_id).to_a.sample.to_s
+    a.category_id = (first_category_id..last_category_id).to_a.sample
     a.save!
 end
 
 15.times do |n|
     a = Idea.new
     a.title = Faker::Company.catch_phrase
-    a.description = "Ever tried to " + Faker::Company.bs + " ? Yeah, I know, it's a pain in the ass, right? This product of mine is going to make it all better. Brilliant, isn't it? Don't worry, you can thank me later. Oh yeah, and vote my idea up. kthxbai"
+    a.description = "Ever tried to " + Faker::Company.bs + "? Yeah, I know, it's a pain in the ass, right? This product of mine is going to make it all better. Brilliant, isn't it? Don't worry, you can thank me later. Oh yeah, and vote my idea up. kthxbai"
     a.feedback_type = "Devil's advocate (1)"
     a.remote_idea_image_url = "http://lorempixel.com/300/300/technics/" + (1..10).to_a.sample.to_s + "/"
     a.video_link = you_tube_videos.sample
     a.user_id = (first_user_id..last_user_id_for_idea_submitters).to_a.sample
-    a.category_id = (first_category_id..last_category_id).to_a.sample.to_s
+    a.category_id = (first_category_id..last_category_id).to_a.sample
     a.save!
 end
 

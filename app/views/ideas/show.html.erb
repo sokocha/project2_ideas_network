@@ -5,12 +5,12 @@
   <%= render :partial => "ideas/ideascore", locals: { idea: @idea} %>
 </div>
 <h3><%= @idea.title %></h3>
+<p id="submitted-byline">Idea submitted by <%= link_to User.find(@idea.user_id).try(:username), user_path(@idea.user_id)  %> on <%= @idea.created_at.strftime("%b %-d, %Y") %> to <%= link_to @idea.category.name, category_path(@idea.category.id)  %></p>
 
 <p id="description"><%= @idea.description %></p>
-<p>Submitted to <%= link_to @idea.category.name, category_path(@idea.category)  %> by <%= link_to User.find(@idea.user_id).try(:username), user_path(@idea.user_id)  %> on <%= @idea.created_at.strftime("%b %-d, %Y") %> 
-</p>
 
-<%= image_tag @idea.idea_image.url %>
+
+<%= image_tag @idea.idea_image.url, class: "idea-image-on-show-page" %>
 <h4>Feedback requested: <%= @idea.feedback_type %></h4><br>
 
 
