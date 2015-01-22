@@ -21,6 +21,8 @@
         <p>Current originality score: <span><%= idea.current_originality_rating %></span></p>
         <p>Votes on originality: <span><%= idea.total_votes_cast_on_ideas_originality %></span></p>
         <% end %>
+        <% elsif @user.ideas.count == 0 %>
+          <strong><i> <%= @user.username %> has not submitted any ideas</i></strong>
         <% end %></p>
       </div>
     </li>
