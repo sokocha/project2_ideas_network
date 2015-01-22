@@ -4,8 +4,16 @@
 <p>
   <%= image_tag @user.user_image.url %>
 </p>
-<% if @user.ideas.count > 0 %>
-  <h3>My ideas</h3>
+
+<ul class="accordion-tabs">
+  <li class="tab-header-and-content">
+    <a href="javascript:void(0)" class="is-active tab-link">My Ideas</a>
+    <div class="tab-content">
+      <p><% if @user.ideas.count > 0 %>
+        <hr>
+        <strong><i>Originality is on a scale from 1 (one of a kind) to 5 (done to death).</i></strong>
+        <hr>
+
   <% (@user.ideas).each do |idea| %>
     <h4><%= link_to idea.title, idea %></h4>
     <p>Current score: <span><%= idea.current_score %></span></p>
@@ -13,30 +21,39 @@
     <p>Current originality score: <span><%= idea.current_originality_rating %></span></p>
     <p>Votes on originality: <span><%= idea.total_votes_cast_on_ideas_originality %></span></p>
   <% end %>
-  <hr>
-  <p>Originality rated on a scale from 1 (for an idea that is truly one of a kind) to 5 (for something that has been done to death).</p>
-  <hr>
-<% end %>
+<% end %></p>
+    </div>
+  </li>
 
-<% if @user.find_liked_items.count > 0 %>
-  <h3>Ideas upvoted</h3>
-  <% (@user.find_liked_items).each do |idea| %>
-    <% if @user.liked?(idea, :vote_scope => 'vote_for_idea') %>
-    <h4><%= link_to idea.title, idea %></h4>
-    <p>Current score: <span><%= idea.current_score %></span></p>
-    <p>Number of votes: <span><%= idea.total_votes_cast_on_idea %></span></p>
-    <% end %>
-  <% end %>
-<% end %>
 
-<% if @user.find_disliked_items.count > 0 %>
-  <h3>Ideas downvoted</h3>
-  <% (@user.find_disliked_items).each do |idea| %>
-    <h4><%= link_to idea.title, idea %></h4>
-    <p>Current score: <span><%= idea.current_score %></span></p>
-    <p>Number of votes: <span><%= idea.total_votes_cast_on_idea %></span></p>
-  <% end %>
-<% end %>
+  <li class="tab-header-and-content">
+    <a href="javascript:void(0)" class="tab-link">Liked Ideas</a>
+    <div class="tab-content">
+      <% if @user.find_liked_items.count > 0 %>
+        <% (@user.find_liked_items).each do |idea| %>
+          <% if @user.liked?(idea, :vote_scope => 'vote_for_idea') %>
+          <h4><%= link_to idea.title, idea %></h4>
+          <p>Current score: <span><%= idea.current_score %></span></p>
+          <p>Number of votes: <span><%= idea.total_votes_cast_on_idea %></span></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="javascript:void(0)" class="tab-link">Disliked Ideas</a>
+    <div class="tab-content">
+      <% if @user.find_disliked_items.count > 0 %>
+        <% (@user.find_disliked_items).each do |idea| %>
+          <h4><%= link_to idea.title, idea %></h4>
+          <p>Current score: <span><%= idea.current_score %></span></p>
+          <p>Number of votes: <span><%= idea.total_votes_cast_on_idea %></span></p>
+        <% end %>
+      <% end %>    
+    </div>
+  </li>
+</ul>
+
 
 
 <% if can? :update, @user %>
