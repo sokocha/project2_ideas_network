@@ -12,12 +12,14 @@ module IdeasHelper
   end
 
   def voted_state(idea)
-    did_user_vote = current_user.voted_as_when_voted_for(idea, :vote_scope => 'vote_for_idea')
-
-    {
-      true   => "upvoted",
-      false  => "downvoted",
-    }[did_user_vote] || "not_voted"
+    
+    if current_user
+      did_user_vote = current_user.voted_as_when_voted_for(idea, :vote_scope => 'vote_for_idea')
+      {
+        true   => "upvoted",
+        false  => "downvoted",
+      }[did_user_vote] || "not_voted"
+    end 
 
   end
 

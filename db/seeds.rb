@@ -11,7 +11,6 @@ User.delete_all
 Idea.delete_all
 Category.delete_all
 
-
 admin_user = User.create!(email: "admin@idea.com", password: "password", role: "admin", username: "admin", bio: "I am a benevolent dictator. Also I like backgammon.")
 
 normal_user1 = User.create!(email: "user@idea.com", password: "password", role: "user", username: "user1susername", bio: "I like the internet and all good things, but most especially kittens.")
