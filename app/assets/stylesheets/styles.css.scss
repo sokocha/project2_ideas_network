@@ -137,11 +137,13 @@
 /* END OF -----------------------------*/
 /* ERROR VALIDATION STYLES */
 
-div.container {
-  @include outer-container;
-}
+// div.container {
+//   @include outer-container;
+// }
 
-p#description {
-  @include span-columns(6);
-}
-
+// div.container {
+//   @include media(max-width 320px) {
+//     @include span-columns(6);
+//     color: red;
+//   }
+// }

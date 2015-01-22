@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Idea.ransack(params[:q])
     @ideas = @q.result(distinct: true)
-    @ideas = @q.result.paginate(page: params[:page], per_page: 1).order('created_at DESC')
+    @ideas = @q.result.paginate(page: params[:page], per_page: 2).order('created_at DESC')
   end
 
 end

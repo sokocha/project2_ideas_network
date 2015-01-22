@@ -7,14 +7,23 @@
   <%= @category.name %>
 </p>
 
-
-
 <p>
   <strong>Is live:</strong>
   <%= @category.is_live %>
 </p>
+ 
+ <% Idea.where(category_id: @category.id).each do |idea| %>
+   <%= link_to idea.title, idea_path(idea.id)  %>
+ <% end %>
+
+
+
+ 
+
+
 
 <% if can? :edit, Category %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <% end %>
+<br><br>
 <%= link_to 'Back', categories_path %>

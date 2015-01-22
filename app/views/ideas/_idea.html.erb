@@ -8,7 +8,6 @@
 <%= idea.feedback_type %>
 <p>Idea submitted to <%= link_to idea.category.name, category_path(idea.category.id)  %> by <%= link_to User.find(idea.user_id).try(:username), user_path(idea.user_id)  %> on <%= idea.created_at.strftime("%b %-d, %Y") %> </p> 
 
-<%= link_to 'Look into this idea', idea %>
 
 
 
