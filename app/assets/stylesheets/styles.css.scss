@@ -1,6 +1,6 @@
 
  div#main-contain {
-  padding: 1.2em;
+  padding-left: 2em;
  }
 
 .pitch-image {
@@ -59,7 +59,11 @@ form#errors-list.new_user #error_explanation ul li {
   color: rgba(255, 255, 255, 0.7);
   font-style: italic;
   font-weight: bold;
-  margin-left: 20em;
+  margin-left: 8em;
+}
+
+#my-ideas {
+  margin-top: -5px;
 }
 
 input#sign-up-input[type="submit"] {
