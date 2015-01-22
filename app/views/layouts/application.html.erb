@@ -8,11 +8,13 @@
 </head>
 
 <body>
-  <%= render partial: "layouts/login" %>
-  <br>
-  <%= render partial: "layouts/searchbar" %>
+  <%= render partial: "layouts/nav" %>
 
+
+  <%#= render partial: "layouts/searchbar" %>
+  <div id= "main-contain">
   <%= yield %>
+  </div>
 
 </body>
 </html>
