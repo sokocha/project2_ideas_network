@@ -42,7 +42,7 @@ class IdeasController < ApplicationController
     # @idea.save
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to @idea, notice: 'Idea has been listed.' }
+        format.html { redirect_to @idea }
         format.json { render :show, status: :created, location: @idea }
       else
         format.html { render :new }

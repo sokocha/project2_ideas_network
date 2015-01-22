@@ -62,7 +62,8 @@
 <% end %>
 
 <% if can? :destroy, @idea %>
-  <%= link_to 'Remove this idea', @idea, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  |
+  <%= link_to 'Remove this idea', @idea, method: :delete, data: { confirm: "Some cared enough to submit this idea, are you sure you want to remove it? Crush their soul why don't you..." } %> |
 <% end %>
 
 <%= link_to 'Back to the homepage', ideas_path %>

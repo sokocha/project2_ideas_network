@@ -10,7 +10,7 @@ class Idea < ActiveRecord::Base
 
   validates :description, presence: true
   validates :description, length: {maximum: 750}
-  # validates :main_image, presence: true
+  validate { errors.add(:base, 'Please either upload an image or provide a link') if main_image.blank? && idea_image.blank? }
   validates :video_link, presence: true
   validates :category_id, presence: true
 
