@@ -2,9 +2,20 @@
 <p>Email: <%= @user.email %></p>
 <p>Biography: <%= @user.bio %></p>
 <p>
-  <b>Image:</b>
   <%= image_tag @user.user_image.url %>
 </p>
+<% if @user.ideas.count > 0 %>
+  <h3>My ideas</h3>
+  <% (@user.ideas).each do |idea| %>
+    <h4><%= link_to idea.title, idea %></h4>
+    <p>Current score: <span><%= idea.current_score %></span></p>
+    <p>Number of votes: <span><%= idea.total_votes_cast_on_idea %></span></p>
+    <p>Current originality score: <span><%= idea.current_originality_rating %></span></p>
+    <p>Votes on originality: <span><%= idea.total_votes_cast_on_ideas_originality %></span></p>
+  <% end %>
+  <hr>
+  <p>Originality rated on a scale from 1 (for an idea that is truly one of a kind) to 5 (for something that has been done to death).</p>
+<% end %>
 
 <% if can? :update, @user %>
   <%= link_to 'Edit profile', edit_user_path(@user) %> |

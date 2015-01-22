@@ -28,6 +28,10 @@ class Idea < ActiveRecord::Base
     end
   end
 
+  def total_votes_cast_on_ideas_originality
+    self.get_upvotes(:vote_scope => 'rate_originality').size
+  end
+
   def current_score
     self.get_upvotes(:vote_scope => 'vote_for_idea').size - self.get_downvotes(:vote_scope => 'vote_for_idea').size
   end
