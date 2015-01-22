@@ -66,12 +66,13 @@ last_user_id_for_idea_submitters = User.last.id - number_of_lurkers
 
 first_category_id = Category.first.id
 last_category_id = Category.last.id
+feedback_possibilities = ["Devil's advocate (1)", "Be honest (2)", "Meh, I dunno (3)", "Please be nice (4)", "Lie to me (5)"]
 
 15.times do |n|
     a = Idea.new
     a.title = Faker::Company.catch_phrase + " 2.0"
     a.description = "This app will " + Faker::Company.bs + " in a way that's never been done before. Initially it will only be availabile on iOS. This is because I have an iPhone. Only one of my investors has an Android phone and my dad said he doesn't much care if he can use the app anyway."
-    a.feedback_type = "Devil's advocate (1)"
+    a.feedback_type = feedback_possibilities.to_a.sample.to_s
     a.remote_idea_image_url = "http://lorempixel.com/300/300/technics/" + (1..10).to_a.sample.to_s + "/"
     a.video_link = you_tube_videos.sample
     a.user_id = (first_user_id..last_user_id_for_idea_submitters).to_a.sample
@@ -83,7 +84,7 @@ end
     a = Idea.new
     a.title = Faker::Company.catch_phrase
     a.description = "Ever tried to " + Faker::Company.bs + "? Yeah, I know, it's a pain in the ass, right? This product of mine is going to make it all better. Brilliant, isn't it? Don't worry, you can thank me later. Oh yeah, and vote my idea up. kthxbai"
-    a.feedback_type = "Devil's advocate (1)"
+    a.feedback_type = feedback_possibilities.to_a.sample.to_s
     a.remote_idea_image_url = "http://lorempixel.com/300/300/technics/" + (1..10).to_a.sample.to_s + "/"
     a.video_link = you_tube_videos.sample
     a.user_id = (first_user_id..last_user_id_for_idea_submitters).to_a.sample
@@ -113,9 +114,9 @@ end
 end
 
 
-possible_comments = ["My kid sister has better ideas than you.", "Obama is Muslim.", "Seriously...?", "Yawn.", "Oh yeah, that exists. It's called Twitter. Heard of it?", "Ya'll be haters.", "What utter drivel.", "Just a spot of friendly advice: keep your day job.", "I find this offensive.", "This totally makes sense, within the bounds of a patriarchal society that promotes the continued oppression of women.", "It's called SPELL CHECK, you dufus.", "Honestly, I don't know what you kids do these days.", "Is that it? I built one of those last week. In my sleep.", "Made that in a hackathon.", "That is exactly like the homework I had to do for my class. I'm in 9th grade btw.", "Can haz cheezburger?", "Bowties are cool.", "Is that you, Toni?", "Cool, cool, cool.", "So basically, it's a blog.", "Cute.", "Awwww, it's like you don't even know that was built in the 80s.", "My grandmother implemented that while recovering from her knee surgery.", "Good day, I am one of the Financial Investor Partner with Forbes, Your contact was sent to me from Forbes for possible investment partnership, I have an Investment Proposal for you. If you are interested, reply me as soon as possible. Regards Dr. Kahalifa Jamal", "whatevs"]
+possible_comments = ["My kid sister has better ideas than you.", "Obama is Muslim.", "Seriously...?", "Yawn.", "Oh yeah, that exists. It's called Twitter. Heard of it?", "Ya'll be haters.", "What utter drivel.", "Just a spot of friendly advice: keep your day job.", "I find this offensive.", "This totally makes sense, within the bounds of a patriarchal society that promotes the continued oppression of women.", "It's called SPELL CHECK, you dufus.", "Honestly, I don't know what you kids do these days.", "Is that it? I built one of those last week. In my sleep.", "Made that in a hackathon.", "That is exactly like the homework I had to do for my class. I'm in 9th grade btw.", "Can haz cheezburger?", "Bowties are cool.", "Is that you, Toni?", "Cool, cool, cool.", "So basically, it's a blog.", "Cute.", "Awwww, it's like you don't even know that was built in the 80s.", "My grandmother implemented that while recovering from her knee surgery.", "Good day, I am one of the Financial Investor Partner with Forbes, Your contact was sent to me from Forbes for possible investment partnership, I have an Investment Proposal for you. If you are interested, reply me as soon as possible. Regards Dr. Kahalifa Jamal", "whatevs", "Hipchat me.", "Way to start a flame war.", "n00b", "OP gone stole someone else's idea...", "Laughing at you not with you.", "This is so profoundly stupid that it probably qualifies at modern art. Quick, some call the Tate Modern! This guy's got the goods!", "Dear Friend - Hi, I am Ms R Morathi of NEDBANK SA PTY, how are you doing? I have a one million business transaction to discuss with you. Kindly respond to this email as soon as possible. Thank you. Ms R Morathi", "In response to the new Facebook guidelines, I hereby declare that my copyright is attached to all of my personal details, illustrations, comics, paintings, professional photos and videos, etc (as a result of the Berner Convention).", "tl;dr", "If you could just stop posting ideas for products that have already been made 10 times, that'd be great."]
 
-125.times do |n|
+100.times do |n|
   body = possible_comments.sample
   oneuser = users.sample
   oneidea = ideas.sample
