@@ -5,6 +5,7 @@ header.navigation {
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
+  margin-top: -11.85px;
 
   .navigation-wrapper {
     @include clearfix;
