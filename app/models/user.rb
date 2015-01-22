@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
   validates :username, uniqueness: true
-  validates :username, length: {maximum: 20}
+  validates :username, length: {maximum: 30}
 
   validates :bio, presence: true
   validates :bio, length: {maximum: 1000}
