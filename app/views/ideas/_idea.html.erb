@@ -2,11 +2,14 @@
 <div class="idea_score">
   <%= render :partial => "ideas/ideascore", locals: { idea: idea } %>
 </div>
-<h4><%= link_to idea.title, idea  %></h4>
-<h3><%= idea.category.name %></h3>
-<h3>Feedback requested:</h3> 
-<%= idea.feedback_type %>
-<p>Idea submitted to <%= link_to idea.category.name, category_path(idea.category.id)  %> by <%= link_to User.find(idea.user_id).try(:username), user_path(idea.user_id)  %> on <%= idea.created_at.strftime("%b %-d, %Y") %> </p> 
+<div>
+  <%= image_tag idea.idea_image.url, class: "idea-image" %>
+</div>
+<div class="idea-container-on-index">
+  <h3><%= link_to idea.title, idea  %></h3>
+  <p>Idea submitted by <%= link_to User.find(idea.user_id).try(:username), user_path(idea.user_id)  %> on <%= idea.created_at.strftime("%b %-d, %Y") %> to <%= link_to idea.category.name, category_path(idea.category.id)  %></p>
+  <p>Number of votes: <span><%= idea.total_votes_cast_on_idea %></span></p>
+</div>
 
 
 
