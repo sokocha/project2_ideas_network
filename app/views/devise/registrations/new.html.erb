@@ -1,48 +1,55 @@
 <h2>Sign up</h2>
-
-
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true} ) do |f| %>
+<br>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true, class: "errors-list"} ) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :username %>
-    <em>(This will be displayed to other users)</em><br />
+    <em>(This will be displayed to other users)</em>
     <%= f.text_field :username %>
   </div>
 
+  <br>
   <div class="field">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
+  <br>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <br>
   <div class="field">
     <%= f.label :bio %>
-    <em>(To add or edit this later, click on "My Profile" at the top of the page.)</em><br />
-    <%= f.text_field :bio %>
+    <%= f.text_area :bio %>
+    <br>
+    <em>(To add or edit this later, click on "My Profile" at the top of the page.)</em>
   </div>
 
+  <br>
   <div class ="field">
-    <%= f.label :user_image %><br />
+    <%= f.label :user_image %>
     <%= f.file_field :user_image %>
   </div>
 
+  <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :id => "sign-up-input" %>
   </div>
 <% end %>
+
+<br>
+<br>
 
 <%= render "devise/shared/links" %>

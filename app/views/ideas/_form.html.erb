@@ -1,7 +1,7 @@
 <%= form_for(@idea) do |f| %>
   
   <% if @idea.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" id="error_explanation_for_ideas">
       <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
 
       <ul>
@@ -15,7 +15,6 @@
   <div class="field">
 
     <%= f.label :title, "What's the headline here? (Describe your idea in one line. This will appear on the homepage.)" %>
-    <br>
     <%= f.text_field :title %>
     <br><br>
     <%= f.label :description, "OK! People want to know more. Here's your chance to describe your idea in more depth." %>
@@ -23,20 +22,21 @@
     <%= f.text_area :description %>
     <br><br>
     <%= f.label :category_id, 'Category' %>
-    <br>
     <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
     <br><br>
 
     <div>
-      <%= f.label :idea_image %>
-      <%= f.file_field :idea_image %><br><br>
-      <%= f.label :remote_idea_image_url %>
+      <%= f.label :idea_image %><br>
+      <span>Upload an image from your computer</span><br><br> 
+      <span><%= f.file_field :idea_image %><span>
+      <br>
+      <span>Or, alternatively, provide a link</span>
+      <%#= f.label :remote_idea_image_url %>
       <%= f.text_field :remote_idea_image_url %>
     </div>
 
     <br>
-    <%= f.label :video_link, 'ID of YouTube video of your pitch' %>
-    <br>
+    <%= f.label :video_link, 'Link to your pitch on YouTube' %>
     <%= f.text_field :video_link %>
     <br><br>
     <%= f.label :feedback_type, 'What kind of feedback do you want?' %>
@@ -45,9 +45,8 @@
     <br><br>
   </div>
   
-  <br><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :id => "create-idea" %>
   </div>
 
   <br><br>
