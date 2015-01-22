@@ -1,4 +1,4 @@
-<h1>Listing categories</h1>
+<h1>Categories</h1>
 
 <%= link_to 'New Category', new_category_path if can? :create, Category %>
 
@@ -11,10 +11,11 @@
     </tr>
   </thead>
 
+
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
+        <td><%= link_to category.name, category_path(category.id)  %></td>
         <td><%= category.is_live %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) if can? :edit, category %></td>
