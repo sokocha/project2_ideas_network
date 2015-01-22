@@ -45,13 +45,22 @@ input#user_email, input#user_password, input#user_username, input#user_password_
   max-width: 15em;
 } 
 
+input#idea_title, input#idea_remote_idea_image_url, input#idea_video_link {
+  max-width: 40em;
+}
+
+textarea#idea_description {
+  max-width: 40em;
+  margin-right: 2em;
+}
+
 textarea#user_bio {
   width: 35em;
   height: 7em;
   // min-height: 7em;
 }
 
-form#errors-list.new_user #error_explanation ul li {
+form#errors-list.new_user #error_explanation ul li, form#new_idea.new_idea div#error_explanation ul li {
   list-style: none;
 }
 
@@ -66,7 +75,7 @@ form#errors-list.new_user #error_explanation ul li {
   margin-top: -5px;
 }
 
-input#sign-up-input[type="submit"] {
+input#sign-up-input[type="submit"], input#create-idea[type="submit"] {
     background: #3498db;
     background-image: -webkit-linear-gradient(top, #3498db, #10517a);
     background-image: -moz-linear-gradient(top, #3498db, #10517a);
@@ -84,7 +93,7 @@ input#sign-up-input[type="submit"] {
     border: none;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, input#create-idea[type="submit"]:hover {
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
   background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
