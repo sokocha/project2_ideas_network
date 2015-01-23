@@ -9,10 +9,10 @@
   
   <thead>
     <tr>
-      <th>Category: <%= @category.name %>
-        <i>
-       Is live: <%= @category.is_live %>
-        </i>
+      <th>Ideas in the "<%= @category.name %>" category
+      <!--   <i>
+       Is live: <%#= @category.is_live %>
+        </i> -->
        </th>
     </tr>
   </thead>
@@ -38,4 +38,5 @@
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <% end %>
 <br><br>
-<%= link_to 'Back', categories_path %>
+<%= link_to 'View all categories', categories_path %>
+<br><br>
