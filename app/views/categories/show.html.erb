@@ -1,20 +1,32 @@
 
 
 <p id="notice"><%= notice %></p>
-
+<br>
 <p>
-  <strong>Category:</strong>
-  <%= @category.name %>
-</p>
-
-<p>
-  <strong>Is live:</strong>
-  <%= @category.is_live %>
-</p>
+  
  
+ <table class = "tables">
+  
+  <thead>
+    <tr>
+      <th>Category: <%= @category.name %>
+        <i>
+       Is live: <%= @category.is_live %>
+        </i>
+       </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
  <% Idea.where(category_id: @category.id).each do |idea| %>
+    <td>
    <%= link_to idea.title, idea_path(idea.id)  %>
+   </td>
+   </tr>
  <% end %>
+ </tbody>
+ </table>
 
 
 
