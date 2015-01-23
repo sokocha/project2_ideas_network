@@ -16,9 +16,10 @@
 //= require turbolinks
 //= require_tree .
 
-@import 'tabs.js';
-@import 'votes.js';
-@import 'navbar.js';
+// WRONG SYNTAX 
+// @import 'tabs.js';
+// @import 'votes.js';
+// @import 'navbar.js';
 
 
 
