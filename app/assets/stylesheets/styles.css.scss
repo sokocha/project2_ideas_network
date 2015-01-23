@@ -1,6 +1,9 @@
 
  div#main-contain {
   padding-left: 2em;
+  max-width: 55em;
+  margin-right: 1.5em;
+
  }
 
 .pitch-image {
@@ -146,6 +149,17 @@ input[type="submit"]:hover, input#create-idea[type="submit"]:hover {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+#topbar {
+  // border: 4px;
+  // border-style: solid;
+  // border-color: lightgrey;
+  border-radius: 0.5%;
+  max-width: 55em;
+  margin-top: 1em;
+  margin-right: 1em;
+  padding: 1.5em;
 }
 
 /* START OF -----------------------------*/

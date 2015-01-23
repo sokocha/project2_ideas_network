@@ -1,6 +1,18 @@
 
 
 <%#= link_to 'Create Category', new_category_path if can? :create, Category %>
+<% if cannot? :upvote, Idea  %>
+  <div id="topbar">
+    <h4>This is Eureka!</h4>
+    <hr>
+    <p>The below ideas await your consideration. Upvote the ideas that you think are good, downvote those that need reconsideration. Click on an individual idea's headline to see more information about it, including an image and video. Further feedback on an idea can be given in the form of comments and votes on the idea's originality.</p>
+    <br>
+    <p>Have an idea yourself? Then submit it for consideration by the community.</p><br>
+    <p>To get started please register or sign in using the links above. Thanks for visiting Eureka.</p>
+    <hr>
+  </div>
+<% end %>
+
 
 <div id="my-ideas">
   <%= render @ideas if can? :index, Idea %><br><br>
