@@ -32,7 +32,8 @@ ending_point_for_lurkers = starting_point_for_lurkers + number_of_lurkers
     a.role = "user"
     a.bio = "I like to " + Faker::Company.bs + ". " + "Because in this age of distruption, it's not just about " + Faker::Company.catch_phrase.downcase + ". I learned all about it at business school."
     a.username = Faker::Internet.user_name + (9..99).to_a.sample.to_s
-    a.remote_user_image_url = "http://placekitten.com/g/300/300"
+    a.user_image = "http://placekitten.com/g/300/300"
+    # a.remote_user_image_url = "http://placekitten.com/g/300/300"
     a.save!
 end
 
