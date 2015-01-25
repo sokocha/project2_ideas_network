@@ -8,6 +8,7 @@ gem 'ransack'
 gem 'rmagick'
 gem 'carrierwave', '0.9.0'
 gem 'will_paginate', '~> 3.0.5'
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record
