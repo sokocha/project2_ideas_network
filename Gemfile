@@ -48,7 +48,7 @@ end
 gem 'devise'
 gem 'cancancan'
 
-gem 'faker', '~>1.4.3', group: :development
+gem 'faker', '~>1.4.3'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
