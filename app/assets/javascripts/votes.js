@@ -26,18 +26,6 @@ $(function (){
       var $fragmentToUpdate = $(evt.target).closest('.idea_score');
       $fragmentToUpdate.html(data);
 
-      // console.log($(this).attr("id"));
-      // voteDirection = ($(this).attr("id"));
-      // $('#show-score').removeClass('score-up');
-      // $('#show-score').removeClass('score-down');
-      
-      // if(voteDirection == "upvote-form"){
-      //   $('#show-score').addClass('score-up');
-      // }
-      // else {
-      //   $('#show-score').addClass('score-down');
-      // }
-
       
     }).
     on('ajax:error', '.idea-voting-form', function(xhr, status, error){
