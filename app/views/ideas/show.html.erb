@@ -37,11 +37,11 @@
               <% end %></li>
           <% end %>
         </ul>
+        <% else %>
+        <p>You can't vote on the originality of your own idea!</p>
+        <% end %>
         <hr>
         <h5>Current score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></h5>
-
-      <% end %>
-
     </div>
   </li>
   <li class="tab-header-and-content">
