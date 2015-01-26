@@ -37,8 +37,10 @@
               <% end %></li>
           <% end %>
         </ul>
-        <% else %>
+        <% elsif current_user %>
         <p>You can't vote on the originality of your own idea!</p>
+        <% else %>
+        <p>Sign in to vote on the originality of this idea</p>
         <% end %>
         <hr>
         <h5>Current score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></h5>
