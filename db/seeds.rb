@@ -11,6 +11,7 @@ User.delete_all
 Idea.delete_all
 Category.delete_all
 Comment.delete_all
+ActsAsVotable::Vote.delete_all
 
 admin_user = User.create!(email: "admin@idea.com", password: "password", role: "admin", username: "admin", bio: "I am a benevolent dictator. Also I like backgammon.", remote_user_image_url: "http://placekitten.com/g/400/500")
 
