@@ -13,11 +13,13 @@ Category.delete_all
 Comment.delete_all
 ActsAsVotable::Vote.delete_all
 
+password_length = 20
+
 admin_user = User.create!(email: "admin@idea.com", password: ENV["IDEAS_PW_ADMIN"], role: "admin", username: "admin", bio: "I am a benevolent dictator. Also I like backgammon.", remote_user_image_url: "http://placekitten.com/g/400/500")
 
-normal_user1 = User.create!(email: "user@idea.com", password: Devise.friendly_token[0,20], role: "user", username: "user1susername", bio: "I like the internet and all good things, but most especially kittens.", remote_user_image_url: "http://placekitten.com/g/300/300")
+normal_user1 = User.create!(email: "user@idea.com", password: Devise.friendly_token.first(password_length), role: "user", username: "user1susername", bio: "I like the internet and all good things, but most especially kittens.", remote_user_image_url: "http://placekitten.com/g/300/300")
 
-normal_user2 = User.create!(email: "user2@idea.com", password: Devise.friendly_token[0,20], role: "user", username: "user2susername", bio: "I like baking cake when I have the ingredients to do so. Also Nascar.", remote_user_image_url: "http://placekitten.com/g/350/350")
+normal_user2 = User.create!(email: "user2@idea.com", password: Devise.friendly_token.first(password_length), role: "user", username: "user2susername", bio: "I like baking cake when I have the ingredients to do so. Also Nascar.", remote_user_image_url: "http://placekitten.com/g/350/350")
 
 number_of_idea_submitters = 20
 number_of_lurkers = 200
@@ -29,7 +31,7 @@ ending_point_for_lurkers = starting_point_for_lurkers + number_of_lurkers
 (number_of_users_created_above_this_point..(number_of_idea_submitters + number_of_users_created_above_this_point)).each do |n|
     a = User.new
     a.email =  "user" + n.to_s + "@idea.com"
-    a.password = Devise.friendly_token[0,20]
+    a.password = Devise.friendly_token.first(password_length)
     a.role = "user"
     a.bio = "I like to " + Faker::Company.bs + ". " + "Because in this age of distruption, it's not just about " + Faker::Company.catch_phrase.downcase + ". I learned all about it at business school."
     a.username = Faker::Internet.user_name + (9..99).to_a.sample.to_s
@@ -40,7 +42,7 @@ end
 (starting_point_for_lurkers..ending_point_for_lurkers).each do |n|
     a = User.new
     a.email =  "user" + n.to_s + "@idea.com"
-    a.password = Devise.friendly_token[0,20]
+    a.password = Devise.friendly_token.first(password_length)
     a.role = "user"
     a.bio = "Lurker..."
     a.username = Faker::Internet.user_name + (9..99).to_a.sample.to_s
