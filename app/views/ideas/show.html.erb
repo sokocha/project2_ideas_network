@@ -37,11 +37,13 @@
               <% end %></li>
           <% end %>
         </ul>
+        <% elsif current_user %>
+        <p>You can't vote on the originality of your own idea!</p>
+        <% else %>
+        <p>Sign in to vote on the originality of this idea</p>
+        <% end %>
         <hr>
         <h5>Current score: <span id="originality_score"> <%= render :template => "ideas/originalityscore" %></span></h5>
-
-      <% end %>
-
     </div>
   </li>
   <li class="tab-header-and-content">
@@ -59,19 +61,17 @@
     </div>
   </li>
   
-<br>
+</div>
+
 
 <% if can? :update, @idea %>
-  <%= link_to 'Edit above details', edit_idea_path(@idea) %> 
+  <%= link_to 'Edit above details', edit_idea_path(@idea) %> |
 <% end %>
 
 <% if can? :destroy, @idea %>
-  |
+  
   <%= link_to 'Remove this idea', @idea, method: :delete, data: { confirm: "Some cared enough to submit this idea, are you sure you want to remove it? Crush their soul why don't you..." } %> |
 <% end %>
 
-</div>
-
-<br><br>
 <%= link_to 'Back to the homepage', ideas_path %>
-<br><br><br><br>
+<br><br>

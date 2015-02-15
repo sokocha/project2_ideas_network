@@ -16,7 +16,10 @@
 //= require turbolinks
 //= require_tree .
 
+<<<<<<< HEAD
 // WRONG SYNTAX 
+=======
+>>>>>>> 8dab0d08e5764c415cf4c80f3e5968a3b21622c4
 // @import 'tabs.js';
 // @import 'votes.js';
 // @import 'navbar.js';
